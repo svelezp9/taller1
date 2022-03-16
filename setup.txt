@@ -1,0 +1,92 @@
+Para empezar, vaya al directorio del proyecto y ejecute el siguiente comando
+- php artisan make:migration create_mobiles_table
+
+
+Abra el archivo creado y pegue el siguiente código 
+-------------------------------------------------------------------------------------------------------
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+
+use Illuminate\Database\Schema\Blueprint;
+
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+
+{
+
+    /**
+
+     * Run the migrations.
+
+     *
+
+     * @return void
+
+     */
+
+    public function up()
+
+    {
+
+        Schema::create('mobiles', function (Blueprint $table) {
+
+            $table->id();
+
+            $table->string('name');
+
+            $table->float('price');
+
+            $table->string('brand');
+
+            $table->string('model');
+
+            $table->string('color');
+
+            $table->integer('ramMemory');
+
+            $table->integer('storage');
+
+            $table->string('imgName');
+
+            $table->timestamps();
+        });
+    }
+
+    /**
+
+     * Reverse the migrations.
+
+     *
+
+     * @return void
+
+     */
+
+    public function down()
+
+    {
+
+        Schema::dropIfExists('mobiles');
+    }
+};
+-----------------------------------------------------------------------------------------------------------------------
+
+Abra el xampp control panel, y ejecute apache server y mysql.
+Oprima admin en la fila de mysql.
+
+Y cree una base de datos llamada  taller1_svelezp9  (Si cambia el nombre de la BD deberá cambiar el nombre de DB_DATABSE en el archivo .env)
+Si tiene username diferente a root o contraseña de mysql deberá introducir esos valores en el archivo .env DB_USERNAME y DB_PASSWORD
+
+IMPORTANTE
+EN CASO DE NO USAR EL PUERTO 3306 PARA MYSQL DEBERÁ CAMBIARLO TAMBIÉN EN EL ARCHIVO .env en DB_PORT
+
+Por último en el directorio del proyecto corra la siguiente linea
+-php artisan migrate
+
+Si hizo bien los pasos debería ver la tabla en la base de datos creada en phpmyadmin. 
+
+La ruta incial del proyecto es la raiz, '\'
+
+Dentro del Proyecto para efectos practicos use precios de entre 0 y 999999, para evitar que mysql no pueda almacenar el dato
