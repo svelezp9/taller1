@@ -30,7 +30,7 @@ class MobileController extends Controller
         return view('mobile.show')->with("viewData", $viewData);
     }
 
-    public function create()
+    public function create($update)
 
     {
         $viewData = []; //to be sent to the view
@@ -43,13 +43,6 @@ class MobileController extends Controller
         Mobile::validate($request);
         $mobileData = $request->only(["name","price","brand","model","color","ramMemory","storage","imgName"]);
         Mobile::create($mobileData);
-        return back()->with('success', "Item created successfully");
-    }
-    public function delete($id)
-
-    {
-        $mobile = Mobile::findOrFail($id);
-        $mobile->delete();
-        return redirect('/mobile')->with('message', 'Móvil eliminado exitosamente!');
+        return back()->with('message', "Item created successfully");
     }
 }

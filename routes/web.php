@@ -21,12 +21,16 @@ Route::get('/mobile/create', 'App\Http\Controllers\MobileController@create')->na
 
 Route::post('/mobile/save', 'App\Http\Controllers\MobileController@save')->name("mobile.save");
 
-Route::get('/mobile/delete/{id}', 'App\Http\Controllers\MobileController@delete')->name("mobile.delete");
-
 Route::get('/mobile/{id}', 'App\Http\Controllers\MobileController@show')->name("mobile.show");
 
-Route::get('/mobile/review/{id}', 'App\Http\Controllers\ReviewController@create')->name("review.create");
+Route::get('/mobile/review/create/{id}', 'App\Http\Controllers\ReviewController@create')->name("review.create");
+
+Route::get('/mobile/review/delete/{id}', 'App\Http\Controllers\ReviewController@delete')->name("review.delete");
+
+Route::get('/mobile/review/updateD/{id}', 'App\Http\Controllers\ReviewController@updateData')->name("review.updateData");
 
 Route::post('/mobile/review/save/{id}', 'App\Http\Controllers\ReviewController@save')->name("review.save");
+
+Route::post('/mobile/review/update/{id}', 'App\Http\Controllers\ReviewController@update')->name("review.update");
 
 Auth::routes();

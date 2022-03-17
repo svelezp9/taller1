@@ -50,7 +50,15 @@
                         <p> - {{ $review->getComment() }}</p>
                     </div>
                     <div class="card-body">
-                        <a href="" class="btn bg-primary text-white ml-auto">Actualizar reseña</a>
+                        <a href="{{ route('review.updateData', ['id' => $review->getId()]) }}" class="btn bg-primary text-white ml-auto">Actualizar reseña</a>
+                    </div>
+                    @if(session()->has('message'))
+                    <div class="alert alert-success">
+                        {{ session()->get('message') }}
+                    </div>
+                    @endif
+                    <div class="card-body">
+                        <a href="{{ route('review.delete', ['id' => $review->getId()]) }}" class="btn bg-primary text-white ml-auto">Borrar reseña</a>
                     </div>
                 </div>
             </div>
