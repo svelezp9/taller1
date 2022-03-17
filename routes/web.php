@@ -25,4 +25,8 @@ Route::get('/mobile/delete/{id}', 'App\Http\Controllers\MobileController@delete'
 
 Route::get('/mobile/{id}', 'App\Http\Controllers\MobileController@show')->name("mobile.show");
 
+Route::get('/mobile/review/{id}', 'App\Http\Controllers\ReviewController@create')->name("review.create");
+
+Route::post('/mobile/review/save/{id}', 'App\Http\Controllers\ReviewController@save')->name("review.save");
+
 Auth::routes();

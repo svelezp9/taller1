@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Review;
+use Illuminate\Http\Request;
 
 class Mobile extends Model
 {
@@ -169,5 +170,20 @@ class Mobile extends Model
     {
 
         $this->reviews = $reviews;
+    }
+    public static function validate(Request $request)
+    {
+        $rules = [
+
+            "name" => "required",
+            "price" => "required|numeric|min:0|not_in:0",
+            "brand" => "required",
+            "model" => "required",
+            "color" => "required",
+            "ramMemory" => "required|numeric|min:0|not_in:0",
+            "storage" => "required|numeric|min:0|not_in:0",
+            "imgName" => "required",
+        ];
+        $request->validate($rules);
     }
 }

@@ -24,8 +24,8 @@ class MobileController extends Controller
     {
         $viewData = [];
         $mobile = Mobile::findOrFail($id);
-        $viewData["title"] = $mobile["name"] . " - Online Store";
-        $viewData["subtitle"] = $mobile["name"] . " - mobile information";
+        $viewData["title"] = $mobile->getName() . " - Online Store";
+        $viewData["subtitle"] = $mobile->getName() . " - mobile information";
         $viewData["mobile"] = $mobile;
         return view('mobile.show')->with("viewData", $viewData);
     }
@@ -40,19 +40,10 @@ class MobileController extends Controller
 
     public function save(Request $request)
     {
-
-        $request->validate([
-            "name" => "required",
-            "price" => "required",
-            "brand" => "required",
-            "model" => "required",
-            "color" => "required",
-            "ramMemory" => "required",
-            "storage" => "required",
-            "imgName" => "required",
-        ]);
-        Mobile::create($request->only(["name", "price","brand","model","color","ramMemory","storage","imgName"]));
-        return back()->with('message', 'Móvil creado exitosamente!');
+        Mobile::validate($request);
+        $mobileData = $request->only(["name","price","brand","model","color","ramMemory","storage","imgName"]);
+        Mobile::create($mobileData);
+        return back()->with('success', "Item created successfully");
     }
     public function delete($id)
 

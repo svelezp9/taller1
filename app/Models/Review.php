@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Http\Request;
 class Review extends Model
 {
     use HasFactory;
@@ -18,7 +18,7 @@ class Review extends Model
      * $this->mobile - Mobile - contains the associated mobile
      */
 
-    protected $fillable = ['comment', 'mobile_id','rating','comment'];
+    protected $fillable = ['comment', 'mobile_id', 'rating', 'comment'];
 
     public function getId()
 
@@ -93,5 +93,13 @@ class Review extends Model
     {
 
         $this->mobile = $mobile;
+    }
+    public static function validate(Request $request)
+    {
+        $rules = [
+            "comment" => "required",
+            "rating" => "required|in:1,2,3,4,5"
+        ];
+        $request->validate($rules);
     }
 }

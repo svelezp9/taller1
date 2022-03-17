@@ -33,23 +33,29 @@
                 <p class="card-text">Memoria ram: {{ $viewData["mobile"]->getRamMemory() }}</p>
                 <p class="card-text">Alamacenamiento: {{ $viewData["mobile"]->getStorage() }}</p>
                 <p class="card-text">Nombre de la imagen: {{ $viewData["mobile"]->getImgName() }}</p>
-
-                @foreach($viewData["mobile"]->reviews as $review)
-
-                - {{ $review->getComment() }}<br />
-
-                Rating = {{ $review->getRating() }}<br />
-                @endforeach
-
+                <div class="card mb-1">
+                    <a href="{{ route('review.create', ['id' => $viewData["mobile"]->getId()]) }}" class="btn bg-primary text-white">Añadir Reseña</a>
+                </div>
             </div>
-
         </div>
-
     </div>
-
+    <div class="card mb-1">
+        <h2>Cellphone Reviews</h2>
+        @foreach($viewData["mobile"]->reviews as $review)
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-5 col-md-6 col-12 pb-4">
+                    <div class="comment mt-4 text-justify float-left">
+                        <h4>Rating: {{ $review->getRating() }}</h4>
+                        <p> - {{ $review->getComment() }}</p>
+                    </div>
+                    <div class="card-body">
+                        <a href="" class="btn bg-primary text-white ml-auto">Actualizar reseña</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endforeach
 </div>
-<div class="card mb-1">
-    <a href="{{ route('mobile.delete', ['id' => $viewData["mobile"]->getId()]) }}" class="text-danger">Borrar Móvil</a>
-</div>
-
 @endsection

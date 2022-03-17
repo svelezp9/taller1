@@ -35,6 +35,8 @@ return new class extends Migration
             $table->unsignedBigInteger('mobile_id');
 
             $table->foreign('mobile_id')->references('id')->on('mobiles');
+            
+            $table->timestamps();
 
         });
     }
