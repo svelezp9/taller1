@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Mobile;
+use Illuminate\Support\Facades\Auth;
 
-class MobileController extends Controller
+class AdminMobileController extends Controller
 
 {
 
@@ -16,7 +17,7 @@ class MobileController extends Controller
         $viewData["title"] = "mobiles";
         $viewData["subtitle"] = "List of mobiles";
         $viewData["mobiles"] = Mobile::all();
-        return view('mobile.index')->with("viewData", $viewData);
+        return view('admin.mobile.index')->with("viewData", $viewData);
     }
 
     public function show($id)
@@ -27,15 +28,16 @@ class MobileController extends Controller
         $viewData["title"] = $mobile->getName() . " - Online Store";
         $viewData["subtitle"] = $mobile->getName() . " - mobile information";
         $viewData["mobile"] = $mobile;
-        return view('mobile.show')->with("viewData", $viewData);
+        return view('admin.mobile.show')->with("viewData", $viewData);
     }
 
-    public function create($update)
+    public function create()
 
     {
         $viewData = []; //to be sent to the view
         $viewData["title"] = "Create mobile";
-        return view('mobile.create')->with("viewData", $viewData);
+        $viewData["user"] = Auth::user();
+        return view('admin.mobile.create')->with("viewData", $viewData);
     }
 
     public function save(Request $request)

@@ -22,7 +22,7 @@
 
             <div class="card-body text-center">
 
-                <a href="{{ route('mobile.show', ['id'=> $mobile->getId()]) }}" class="btn bg-primary text-white">{{ $mobile->getName() }}</a>
+                <a href="{{ route('admin.mobile.show', ['id'=> $mobile->getId()]) }}" class="btn bg-primary text-white">{{ $mobile->getName() }}</a>
 
             </div>
 

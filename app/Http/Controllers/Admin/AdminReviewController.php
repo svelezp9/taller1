@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Review;
+use Illuminate\Support\Facades\Auth;
 
-class ReviewController extends Controller
+class AdminReviewController extends Controller
 
 {
     public function create($mobileid)
@@ -14,14 +15,15 @@ class ReviewController extends Controller
         $viewData = []; //to be sent to the view
         $viewData["title"] = "Create Review";
         $viewData['mobile_id'] = $mobileid;
-        return view('review.create')->with("viewData", $viewData);
+        return view('admin.review.create')->with("viewData", $viewData);
     }
 
-    public function save(Request $request, $mobileid)
+    public function save(Request $request, $mobileId)
     {
         Review::validate($request);
         $reviewData = $request->only(["comment","rating"]);
-        $reviewData['mobile_id'] = $mobileid;
+        $reviewData['mobile_id'] = $mobileId;
+        $reviewData['user_id'] = Auth::id();
         Review::create($reviewData);
         return back()->with('message', "Item created successfully");
     }
@@ -31,13 +33,12 @@ class ReviewController extends Controller
         $viewData = []; //to be sent to the view
         $viewData["title"] = "Update Review";
         $viewData['review'] = Review::findOrFail($id);
-        return view('review.update')->with("viewData", $viewData);
+        return view('admin.review.update')->with("viewData", $viewData);
     }
     public function update(Request $request, $id)
     {
         Review::validate($request);
         $reviewData = $request->only(["comment","rating"]);
-        $reviewData['id'] = $id;
         Review::whereId($id)->update($reviewData);
         return back()->with('message', "Item updated successfully");
     }

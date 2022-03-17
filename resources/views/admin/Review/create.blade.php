@@ -12,7 +12,7 @@
 
             <div class="card">
 
-                <div class="card-header">Update Review</div>
+                <div class="card-header">Create Review</div>
 
                 <div class="card-body">
 
@@ -34,7 +34,7 @@
                         {{ session()->get('message') }}
                     </div>
                     @endif
-                    <form method="POST" action="{{ route('review.update', ['id' => $viewData["review"]->getId()]) }}">
+                    <form method="POST" action="{{ route('admin.review.save', ['id' => $viewData["mobile_id"]]) }}">
 
                         @csrf
                         <input type="text" class="form-control mb-2" placeholder="Enter comment" name="comment" value="{{ old('comment') }}" />

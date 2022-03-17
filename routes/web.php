@@ -13,24 +13,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'App\Http\Controllers\HomeController@index')->name("home.index");
+Route::middleware('admin')->group(function () {
 
-Route::get('/mobile', 'App\Http\Controllers\MobileController@index')->name("mobile.index");
+    Route::get('/', 'App\Http\Controllers\Admin\AdminHomeController@index')->name("admin.home.index");
 
-Route::get('/mobile/create', 'App\Http\Controllers\MobileController@create')->name("mobile.create");
+    Route::get('/admin/mobile', 'App\Http\Controllers\Admin\AdminMobileController@index')->name("admin.mobile.index");
 
-Route::post('/mobile/save', 'App\Http\Controllers\MobileController@save')->name("mobile.save");
+    Route::get('/admin/mobile/create', 'App\Http\Controllers\Admin\AdminMobileController@create')->name("admin.mobile.create");
 
-Route::get('/mobile/{id}', 'App\Http\Controllers\MobileController@show')->name("mobile.show");
+    Route::post('/admin/mobile/save', 'App\Http\Controllers\Admin\AdminMobileController@save')->name("admin.mobile.save");
+    
+    Route::get('/admin/mobile/{id}', 'App\Http\Controllers\Admin\AdminMobileController@show')->name("admin.mobile.show");
 
-Route::get('/mobile/review/create/{id}', 'App\Http\Controllers\ReviewController@create')->name("review.create");
+    Route::get('/admin/mobile/review/create/{id}', 'App\Http\Controllers\Admin\AdminReviewController@create')->name("admin.review.create");
 
-Route::get('/mobile/review/delete/{id}', 'App\Http\Controllers\ReviewController@delete')->name("review.delete");
+    Route::get('/admin/mobile/review/delete/{id}', 'App\Http\Controllers\Admin\AdminReviewController@delete')->name("admin.review.delete");
 
-Route::get('/mobile/review/updateD/{id}', 'App\Http\Controllers\ReviewController@updateData')->name("review.updateData");
+    Route::get('/admin/mobile/review/updateD/{id}', 'App\Http\Controllers\Admin\AdminReviewController@updateData')->name("admin.review.updateData");
 
-Route::post('/mobile/review/save/{id}', 'App\Http\Controllers\ReviewController@save')->name("review.save");
+    Route::post('/admin/mobile/review/save/{id}', 'App\Http\Controllers\Admin\AdminReviewController@save')->name("admin.review.save");
 
-Route::post('/mobile/review/update/{id}', 'App\Http\Controllers\ReviewController@update')->name("review.update");
+    Route::post('/admin/mobile/review/update/{id}', 'App\Http\Controllers\Admin\AdminReviewController@update')->name("admin.review.update");
+});
 
 Auth::routes();

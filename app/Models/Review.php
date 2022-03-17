@@ -18,7 +18,7 @@ class Review extends Model
      * $this->mobile - Mobile - contains the associated mobile
      */
 
-    protected $fillable = ['comment', 'mobile_id', 'rating', 'comment'];
+    protected $fillable = ['comment', 'mobile_id', 'rating', 'comment','user_id'];
 
     public function getId()
 
@@ -93,6 +93,39 @@ class Review extends Model
     {
 
         $this->mobile = $mobile;
+    }
+    public function getUserId()
+
+    {
+
+        return $this->attributes['user_id'];
+    }
+
+    public function setUserId($uId)
+
+    {
+
+        $this->attributes['user_id'] = $uId;
+    }
+
+    public function User()
+    {
+
+        return $this->belongsTo(User::class);
+    }
+
+    public function getUser()
+
+    {
+
+        return $this->user;
+    }
+
+    public function setUser($user)
+
+    {
+
+        $this->user = $user;
     }
     public static function validate(Request $request)
     {

@@ -3,7 +3,6 @@
 @section("title", $viewData["title"])
 
 @section('content')
-
 <div class="container">
 
     <div class="row justify-content-center">
@@ -34,7 +33,7 @@
                         {{ session()->get('message') }}
                     </div>
                     @endif
-                    <form method="POST" action="{{ route('mobile.save') }}">
+                    <form method="POST" action="{{ route('admin.mobile.save') }}">
 
                         @csrf
 
@@ -69,5 +68,4 @@
 </div>
 
 </div>
-
 @endsection

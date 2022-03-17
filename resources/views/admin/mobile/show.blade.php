@@ -34,7 +34,7 @@
                 <p class="card-text">Alamacenamiento: {{ $viewData["mobile"]->getStorage() }}</p>
                 <p class="card-text">Nombre de la imagen: {{ $viewData["mobile"]->getImgName() }}</p>
                 <div class="card mb-1">
-                    <a href="{{ route('review.create', ['id' => $viewData["mobile"]->getId()]) }}" class="btn bg-primary text-white">Añadir Reseña</a>
+                    <a href="{{ route('admin.review.create', ['id' => $viewData["mobile"]->getId()]) }}" class="btn bg-primary text-white">Añadir Reseña</a>
                 </div>
             </div>
         </div>
@@ -55,10 +55,10 @@
                         <p> - {{ $review->getComment() }}</p>
                     </div>
                     <div class="card-body">
-                        <a href="{{ route('review.updateData', ['id' => $review->getId()]) }}" class="btn bg-primary text-white ml-auto">Actualizar reseña</a>
+                        <a href="{{ route('admin.review.updateData', ['id' => $review->getId()]) }}" class="btn bg-primary text-white ml-auto">Actualizar reseña</a>
                     </div>
                     <div class="card-body">
-                        <a href="{{ route('review.delete', ['id' => $review->getId()]) }}" class="btn bg-primary text-white ml-auto">Borrar reseña</a>
+                        <a href="{{ route('admin.review.delete', ['id' => $review->getId()]) }}" class="btn bg-primary text-white ml-auto">Borrar reseña</a>
                     </div>
                 </div>
             </div>
