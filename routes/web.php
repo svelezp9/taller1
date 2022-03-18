@@ -12,10 +12,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', 'App\Http\Controllers\HomeController@index')->name("home.index");
 
 Route::middleware('admin')->group(function () {
 
-    Route::get('/', 'App\Http\Controllers\Admin\AdminHomeController@index')->name("admin.home.index");
+    Route::get('/admin', 'App\Http\Controllers\Admin\AdminHomeController@index')->name("admin.home.index");
 
     Route::get('/admin/mobile', 'App\Http\Controllers\Admin\AdminMobileController@index')->name("admin.mobile.index");
 

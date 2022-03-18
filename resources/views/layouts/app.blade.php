@@ -24,7 +24,7 @@
 
         <div class="container">
 
-            <a class="navbar-brand" href="{{ route('admin.home.index') }}">Mobile Store</a>
+            <a class="navbar-brand" href="{{ route('home.index') }}">Mobile Store</a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 
