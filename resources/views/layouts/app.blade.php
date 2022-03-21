@@ -8,7 +8,8 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous" />
 
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet" />
 
@@ -24,15 +25,39 @@
 
         <div class="container">
 
+            <!--<div class="logo"><a href=""><img src="logo.png"></a></div>-->
+
             <a class="navbar-brand" href="{{ route('home.index') }}">Mobile Store</a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 
                 <span class="navbar-toggler-icon"></span>
 
             </button>
 
         </div>
+
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+                <div class="navbar-nav ms-auto">
+
+                @guest
+
+                @else
+
+                    <a class="nav-link active" href="{{ route('home.index') }}">Home</a>
+
+                    <a class="nav-link active" href="{{ route('mobiles.index') }}">All Mobiles</a>
+
+                    <a class="nav-link active" href="{{ route('cart.index') }}">Shopping Cart</a>
+
+                @endguest
+
+                </div>
+
+            </div>
+
         <div class="navbar-nav ms-auto">
             <div class="vr bg-white mx-2 d-none d-lg-block"></div>
 
@@ -46,7 +71,8 @@
 
             <form id="logout" action="{{ route('logout') }}" method="POST">
 
-                <a role="button" class="nav-link active" onclick="document.getElementById('logout').submit();">Logout</a>
+                <a role="button" class="nav-link active"
+                    onclick="document.getElementById('logout').submit();">Logout</a>
 
                 @csrf
 
@@ -61,7 +87,7 @@
 
         <div class="container d-flex align-items-center flex-column">
 
-            <h2>@yield('subtitle', 'A Laravel EAFIT App')</h2>
+            <h2>@yield('subtitle', 'SiAnSe Mobile Store')</h2>
 
         </div>
 
@@ -83,7 +109,8 @@
 
             <small>
 
-                Copyright - <a class="text-reset fw-bold text-decoration-none" target="_blank" href="https://twitter.com/danielgarax">
+                Copyright - <a class="text-reset fw-bold text-decoration-none" target="_blank"
+                    href="https://twitter.com/danielgarax">
 
                     Daniel Correa
 

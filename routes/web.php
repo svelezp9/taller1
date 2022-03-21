@@ -14,6 +14,22 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name("home.index");
 
+Route::get('/mobiles', 'App\Http\Controllers\MobileController@index')->name("mobiles.index");
+
+Route::get('/mobiles/{id}', 'App\Http\Controllers\MobileController@show')->name("mobiles.show");
+
+Route::get('/mobiles/review/create/{id}', 'App\Http\Controllers\ReviewController@create')->name("reviews.create");
+
+Route::post('/mobiles/review/save/{id}', 'App\Http\Controllers\ReviewController@save')->name("reviews.save");
+
+Route::get('/mobiles/review/delete/{id}', 'App\Http\Controllers\ReviewController@delete')->name("reviews.delete");
+
+
+Route::get('/cart', 'App\Http\Controllers\CartController@index')->name("cart.index");
+Route::post('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name("cart.add");
+Route::get('/cart/removeAll/', 'App\Http\Controllers\CartController@removeAll')->name("cart.removeAll");
+
+
 Route::middleware('admin')->group(function () {
 
     Route::get('/admin', 'App\Http\Controllers\Admin\AdminHomeController@index')->name("admin.home.index");
