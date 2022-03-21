@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Review;
 use Illuminate\Http\Request;
+use App\Models\Item;
 
 class Mobile extends Model
 {
@@ -21,6 +22,7 @@ class Mobile extends Model
      * $this->attributes['storage '] - int - contains the size of the ROM of the mobile
      * $this->attributes['imgName'] - string - contains the name of the img file of the mobile, the default route in pc for media will be /Taller1/public
      * $this->reviews - Reviews[] - contains the associated reviews
+     * $this->items - Item[] - contains the associated items
      */
 
     protected $fillable = ['name', 'price', 'brand', 'model', 'color', 'ramMemory', 'storage', 'imgName'];
@@ -186,4 +188,29 @@ class Mobile extends Model
         ];
         $request->validate($rules);
     }
+
+    public static function sumPricesByQuantities($mobiles, $productsInSession)
+    {
+        $total = 0;
+        foreach ($mobiles as $mobile) {
+            $total = $total + ($mobile->getPrice()*$productsInSession[$mobile->getId()]);
+        }
+        return $total;
+    }
+
+    public function items()
+    {
+        return $this->hasMany(Item::class);
+    }
+    
+    public function getItems()
+    {
+        return $this->items;
+    }
+    
+    public function setItems($items)
+    {
+        $this->items = $items;
+    }
+
 }

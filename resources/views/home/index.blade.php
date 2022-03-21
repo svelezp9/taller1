@@ -4,6 +4,10 @@
 
 @section('content')
 
-    <p>Welcome to the application</p> 
+<div class="text-center">
+
+    Welcome to the application
+
+</div>
 
 @endsection
