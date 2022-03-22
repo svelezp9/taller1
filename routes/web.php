@@ -18,6 +18,8 @@ Route::get('/mobiles', 'App\Http\Controllers\MobileController@index')->name("mob
 
 Route::get('/mobiles/search','App\Http\Controllers\MobileController@search')->name("mobiles.search");
 
+Route::get('/mobiles/top','App\Http\Controllers\MobileController@top')->name("mobiles.top");
+
 Route::get('/mobiles/{id}', 'App\Http\Controllers\MobileController@show')->name("mobiles.show");
 
 Route::get('/mobiles/review/create/{id}', 'App\Http\Controllers\ReviewController@create')->name("reviews.create");

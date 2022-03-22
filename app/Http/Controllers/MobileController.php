@@ -11,8 +11,8 @@ class MobileController extends Controller
     public function index()
     {
         $viewData = [];
-        $viewData["title"] = "Products - Online Store";
-        $viewData["subtitle"] =  "List of products";
+        $viewData["title"] = "Mobiles - Online Store";
+        $viewData["subtitle"] =  "List of Mobiles";
         $viewData["mobiles"] = Mobile::all();
         return view('mobiles.index')->with("viewData", $viewData);
     }
@@ -36,6 +36,15 @@ class MobileController extends Controller
         $viewData = [];
         $viewData['mobiles'] = $mobiles;
           
-        return view('mobiles.search')->with("viewData", $viewData);;
+        return view('mobiles.search')->with("viewData", $viewData);
+    }
+
+    public function top(){
+        $viewData =[];
+        $viewData["title"] = "Mobiles - Online Store";
+        $viewData["subtitle"] =  "Hot of Mobiles";
+        $mobiles = Mobile::withCount('reviews')->orderBy('reviews_count', 'desc')->take('4')->get();
+        $viewData['mobiles'] = $mobiles;
+        return view('mobiles.top')->with("viewData", $viewData);
     }
 }
