@@ -26,7 +26,9 @@ Route::get('/mobiles/review/delete/{id}', 'App\Http\Controllers\ReviewController
 
 
 Route::get('/cart', 'App\Http\Controllers\CartController@index')->name("cart.index");
+
 Route::post('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name("cart.add");
+
 Route::get('/cart/removeAll/', 'App\Http\Controllers\CartController@removeAll')->name("cart.removeAll");
 
 

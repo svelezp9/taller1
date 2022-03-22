@@ -42,9 +42,7 @@
 
                 <div class="navbar-nav ms-auto">
 
-                @guest
 
-                @else
 
                     <a class="nav-link active" href="{{ route('home.index') }}">Home</a>
 
@@ -52,7 +50,6 @@
 
                     <a class="nav-link active" href="{{ route('cart.index') }}">Shopping Cart</a>
 
-                @endguest
 
                 </div>
 
