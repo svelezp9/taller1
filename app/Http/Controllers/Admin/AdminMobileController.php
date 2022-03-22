@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Mobile;
@@ -43,8 +44,32 @@ class AdminMobileController extends Controller
     public function save(Request $request)
     {
         Mobile::validate($request);
-        $mobileData = $request->only(["name","price","brand","model","color","ramMemory","storage","imgName"]);
+        $mobileData = $request->only(["name", "price", "brand", "model", "color", "ramMemory", "storage", "imgName"]);
         Mobile::create($mobileData);
         return back()->with('message', "Item created successfully");
+    }
+
+    public function edit($id)
+    {
+        $viewData = [];
+        $viewData["title"] = "Admin Page - Edit mobile - Online Store";
+        $viewData["mobile"] = Mobile::findOrFail($id);
+        return view('admin.mobile.edit')->with("viewData", $viewData);
+    }
+
+    public function update(Request $request, $id)
+    {
+        Mobile::validate($request);
+        $mobile = Mobile::findOrFail($id);
+        $mobile->setName($request->input('name'));
+        $mobile->setPrice($request->input('price'));
+        $mobile->setBrand($request->input('brand'));
+        $mobile->setModel($request->input('model'));
+        $mobile->setColor($request->input('color'));
+        $mobile->setRamMemory($request->input('ramMemory'));
+        $mobile->setStorage($request->input('storage'));
+        $mobile->setimgName($request->input('imgName'));
+        $mobile->save();
+        return redirect()->route('admin.mobile.index');
     }
 }

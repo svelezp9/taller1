@@ -36,23 +36,27 @@ Route::middleware('admin')->group(function () {
 
     Route::get('/admin', 'App\Http\Controllers\Admin\AdminHomeController@index')->name("admin.home.index");
 
-    Route::get('/admin/mobile', 'App\Http\Controllers\Admin\AdminMobileController@index')->name("admin.mobile.index");
+    Route::get('/admin/mobiles', 'App\Http\Controllers\Admin\AdminMobileController@index')->name("admin.mobile.index");
 
-    Route::get('/admin/mobile/create', 'App\Http\Controllers\Admin\AdminMobileController@create')->name("admin.mobile.create");
+    Route::get('/admin/mobiles/create', 'App\Http\Controllers\Admin\AdminMobileController@create')->name("admin.mobile.create");
 
-    Route::post('/admin/mobile/save', 'App\Http\Controllers\Admin\AdminMobileController@save')->name("admin.mobile.save");
+    Route::post('/admin/mobiles/save', 'App\Http\Controllers\Admin\AdminMobileController@save')->name("admin.mobile.save");
     
-    Route::get('/admin/mobile/{id}', 'App\Http\Controllers\Admin\AdminMobileController@show')->name("admin.mobile.show");
+    Route::get('/admin/mobiles/{id}', 'App\Http\Controllers\Admin\AdminMobileController@show')->name("admin.mobile.show");
 
-    Route::get('/admin/mobile/review/create/{id}', 'App\Http\Controllers\Admin\AdminReviewController@create')->name("admin.review.create");
+    Route::get('/admin/mobiles/review/create/{id}', 'App\Http\Controllers\Admin\AdminReviewController@create')->name("admin.review.create");
 
-    Route::get('/admin/mobile/review/delete/{id}', 'App\Http\Controllers\Admin\AdminReviewController@delete')->name("admin.review.delete");
+    Route::get('/admin/mobiles/review/delete/{id}', 'App\Http\Controllers\Admin\AdminReviewController@delete')->name("admin.review.delete");
 
-    Route::get('/admin/mobile/review/updateD/{id}', 'App\Http\Controllers\Admin\AdminReviewController@updateData')->name("admin.review.updateData");
+    Route::get('/admin/mobiles/review/updateD/{id}', 'App\Http\Controllers\Admin\AdminReviewController@updateData')->name("admin.review.updateData");
 
-    Route::post('/admin/mobile/review/save/{id}', 'App\Http\Controllers\Admin\AdminReviewController@save')->name("admin.review.save");
+    Route::post('/admin/mobiles/review/save/{id}', 'App\Http\Controllers\Admin\AdminReviewController@save')->name("admin.review.save");
 
-    Route::post('/admin/mobile/review/update/{id}', 'App\Http\Controllers\Admin\AdminReviewController@update')->name("admin.review.update");
+    Route::post('/admin/mobiles/review/update/{id}', 'App\Http\Controllers\Admin\AdminReviewController@update')->name("admin.review.update");
+
+    Route::get('/admin/mobiles/{id}/edit', 'App\Http\Controllers\Admin\AdminMobileController@edit')->name("admin.mobile.edit");
+
+    Route::put('/admin/mobiles/{id}/update', 'App\Http\Controllers\Admin\AdminMobileController@update')->name("admin.mobile.update");
 });
 
 Auth::routes();
