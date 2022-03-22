@@ -47,4 +47,12 @@ class MobileController extends Controller
         $viewData['mobiles'] = $mobiles;
         return view('mobiles.top')->with("viewData", $viewData);
     }
+    public function lowerPrices(){
+        $viewData =[];
+        $viewData["title"] = "Mobiles - Online Store";
+        $viewData["subtitle"] =  "Cheapest Mobiles";
+        $mobiles = Mobile::orderBy('price', 'asc')->take('3')->get();
+        $viewData['mobiles'] = $mobiles;
+        return view('mobiles.top')->with("viewData", $viewData);
+    }
 }
