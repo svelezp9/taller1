@@ -26,4 +26,16 @@ class MobileController extends Controller
         $viewData["mobile"] = $mobile;
         return view('mobiles.show')->with("viewData", $viewData);
     }
+    public function search(Request $request)
+    {
+        if($request->filled('search')){
+            $mobiles = Mobile::search($request->search)->get();
+        }else{
+            $mobiles = Mobile::get()->take('5');
+        }
+        $viewData = [];
+        $viewData['mobiles'] = $mobiles;
+          
+        return view('mobiles.search')->with("viewData", $viewData);;
+    }
 }

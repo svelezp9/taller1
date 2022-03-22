@@ -7,10 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Review;
 use Illuminate\Http\Request;
 use App\Models\Item;
+use Laravel\Scout\Searchable;
+
+use Laravel\Scout\Attributes\SearchUsingPrefix;
 
 class Mobile extends Model
 {
-    use HasFactory;
+    use Searchable;
     /**
      * $this->attributes['id'] - int - contains the mobile primary key (id)
      * $this->attributes['name'] - string - contains name of the mobile
@@ -193,7 +196,7 @@ class Mobile extends Model
     {
         $total = 0;
         foreach ($mobiles as $mobile) {
-            $total = $total + ($mobile->getPrice()*$productsInSession[$mobile->getId()]);
+            $total = $total + ($mobile->getPrice() * $productsInSession[$mobile->getId()]);
         }
         return $total;
     }
@@ -202,15 +205,22 @@ class Mobile extends Model
     {
         return $this->hasMany(Item::class);
     }
-    
+
     public function getItems()
     {
         return $this->items;
     }
-    
+
     public function setItems($items)
     {
         $this->items = $items;
     }
 
+    #[SearchUsingPrefix(['id'])]
+    public function toSearchableArray()
+    {
+        return [
+            'name' => $this->name,
+        ];
+    }
 }
