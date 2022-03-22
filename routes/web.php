@@ -54,9 +54,9 @@ Route::middleware('admin')->group(function () {
 
     Route::post('/admin/mobiles/review/update/{id}', 'App\Http\Controllers\Admin\AdminReviewController@update')->name("admin.review.update");
 
-    Route::get('/admin/mobiles/{id}/edit', 'App\Http\Controllers\Admin\AdminMobileController@edit')->name("admin.mobile.edit");
+    Route::get('/admin/mobiles/edit/{id}', 'App\Http\Controllers\Admin\AdminMobileController@edit')->name("admin.mobile.edit");
 
-    Route::put('/admin/mobiles/{id}/update', 'App\Http\Controllers\Admin\AdminMobileController@update')->name("admin.mobile.update");
+    Route::post('/admin/mobiles/update/{id}', 'App\Http\Controllers\Admin\AdminMobileController@update')->name("admin.mobile.update");
 });
 
 Auth::routes();

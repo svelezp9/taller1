@@ -19,8 +19,11 @@
                 <tr>
                     <td>{{ $mobile->getId() }}</td>
                     <td>{{ $mobile->getName() }}</td>
-                    <td>Edit</td>
-                    <td>Delete</td>
+                    <td>
+                        <a class="btn btn-primary" href="{{route('admin.mobile.edit', ['id'=> $mobile->getId()])}}">
+                            <i class="bi-pencil"></i>
+                        </a>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>
