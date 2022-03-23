@@ -7,10 +7,10 @@
 <div class="text-center">
     Welcome to the application
     <div class="card-body text-center">
-        <a href="{{ route('admin.mobile.create') }}" class="btn bg-primary text-white">Añadir Móvil</a>
+        <a href="{{ route('admin.mobile.create') }}" class="btn bg-primary text-white">Create Mobiles</a>
     </div>
     <div class="card-body text-center">
-        <a href="{{ route('admin.mobile.index') }}" class="btn bg-primary text-white">Listar Móviles</a>
+        <a href="{{ route('admin.mobile.index') }}" class="btn bg-primary text-white">List Mobiles</a>
     </div>
 </div>
 @endsection

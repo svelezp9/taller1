@@ -1,9 +1,6 @@
 @extends('layouts.app')
-
 @section('title', 'Mobile')
-
 @section('subtitle', 'All Mobiles')
-
 @section('content')
 <form method="GET" class="mb-5" action="{{ route('mobiles.search') }}">
         <div class="input-group mb-3">
