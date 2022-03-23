@@ -26,8 +26,17 @@ Route::get('/mobiles/review/delete/{id}', 'App\Http\Controllers\ReviewController
 
 
 Route::get('/cart', 'App\Http\Controllers\CartController@index')->name("cart.index");
+
 Route::post('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name("cart.add");
+
 Route::get('/cart/removeAll/', 'App\Http\Controllers\CartController@removeAll')->name("cart.removeAll");
+
+Route::get('/cart/pdf/{id}', 'App\Http\Controllers\CartController@pdf')->name("cart.pdf");
+
+
+Route::middleware('auth')->group(function () {
+    Route::get('/cart/acquisition', 'App\Http\Controllers\CartController@purchase')->name("cart.purchase");
+});
 
 
 Route::middleware('admin')->group(function () {
