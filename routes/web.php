@@ -36,6 +36,13 @@ Route::post('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name("
 
 Route::get('/cart/removeAll/', 'App\Http\Controllers\CartController@removeAll')->name("cart.removeAll");
 
+Route::get('/cart/pdf/{id}', 'App\Http\Controllers\CartController@pdf')->name("cart.pdf");
+
+
+Route::middleware('auth')->group(function () {
+    Route::get('/cart/acquisition', 'App\Http\Controllers\CartController@purchase')->name("cart.purchase");
+});
+
 Route::middleware('admin')->group(function () {
 
     Route::get('/admin', 'App\Http\Controllers\Admin\AdminHomeController@index')->name("admin.home.index");
