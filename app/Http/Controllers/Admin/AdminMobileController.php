@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Mobile;
 use Illuminate\Support\Facades\Auth;
+use App\Interfaces\ImageStorage;
 
 class AdminMobileController extends Controller
 
@@ -44,8 +45,11 @@ class AdminMobileController extends Controller
     public function save(Request $request)
     {
         Mobile::validate($request);
-        $mobileData = $request->only(["name", "price", "brand", "model", "color", "ramMemory", "storage", "imgName"]);
+        $mobileData = $request->only(["name", "price", "brand", "model", "color", "ramMemory", "storage"]);
+        $mobileData["imgName"] = $mobileData["name"].".".$request->file('imgName')->extension();
         Mobile::create($mobileData);
+        $storeInterface = app(ImageStorage::class);
+        $storeInterface->store($request,$mobileData["imgName"]);
         return back()->with('message', "Item created successfully");
     }
 
