@@ -33,6 +33,7 @@ class Item extends Model
             "quantity" => "required|numeric|gt:0",
             "mobile_id" => "required|exists:mobiles,id",
             "order_id" => "required|exists:orders,id",
+            "accessory_id" => "required|exists:accessory,id",
         ]);
     }
     
@@ -84,6 +85,15 @@ class Item extends Model
     public function setMobileId($mobileId)
     {
         $this->attributes['mobile_id'] = $mobileId;
+    }
+    public function getAccessoryId()
+    {
+        return $this->attributes['accessory_id'];
+    }
+    
+    public function setAccessoryId($accessoryId)
+    {
+        $this->attributes['accessory_id'] = $accessoryId;
     }
     
     public function getCreatedAt()
@@ -141,12 +151,12 @@ class Item extends Model
         return $this->belongsTo(Accessory::class);
     }
     
-    public function getaccessory()
+    public function getAccessory()
     {
         return $this->accessory;
     }
     
-    public function setaccessory($accessory)
+    public function setAccessory($accessory)
     {
         $this->accessory = $accessory;
     }

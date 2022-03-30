@@ -176,6 +176,26 @@ class Mobile extends Model
 
         $this->reviews = $reviews;
     }
+    public function accessories()
+
+    {
+
+        return $this->hasMany(Accessory::class);
+    }
+
+    public function getAccessories()
+
+    {
+
+        return $this->accesories;
+    }
+
+    public function setAccessories($accessories)
+
+    {
+
+        $this->accessories = $accessories;
+    }
     public static function validate(Request $request)
     {
         $rules = [

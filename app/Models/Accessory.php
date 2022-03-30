@@ -13,7 +13,6 @@ class Accessory extends Model
      * $this->attributes['id'] - int - contains the accessory primary key (id)
      * $this->attributes['name'] - string - contains name of the accessory
      * $this->attributes['price'] - float - contains the price of the accessory
-     * $this->attributes['brand'] - string - contains the brand's name of the accessory
      * $this->attributes['description'] - string - contains the description of the accessory
      * $this->attributes['imgName'] - string - contains the name of the img file of the accessory, the default route in pc for media will be /Taller1/public
      * $this->attributes['mobile_id'] - int - contains the referenced mobile id
@@ -21,7 +20,7 @@ class Accessory extends Model
      * $this->mobile - Mobile - contains the associated Mobile
      */
 
-    protected $fillable = ['name', 'price', 'brand', 'model', 'imgName'];
+    protected $fillable = ['name', 'price', 'description','imgName'];
 
     public function getId()
 
@@ -65,38 +64,21 @@ class Accessory extends Model
         $this->attributes['price'] = $price;
     }
 
-    public function getBrand()
-
-    {
-
-        return $this->attributes['brand'];
-    }
-
-    public function setBrand($brand)
-
-    {
-
-        $this->attributes['brand'] = $brand;
-    }
-
     public function getDescription()
 
     {
-
         return $this->attributes['description'];
     }
 
     public function setDescription($description)
 
     {
-
         $this->attributes['description'] = $description;
     }
 
     public function getimgName()
 
     {
-
         return $this->attributes['imgName'];
     }
 
@@ -145,5 +127,13 @@ class Accessory extends Model
     public function setMobile($mobile)
     {
         $this->mobile = $mobile;
+    }
+    public static function sumPricesByQuantities($accessories, $productsInSession)
+    {
+        $total = 0;
+        foreach ($accessories as $accessory) {
+            $total = $total + ($accessory->getPrice() * $productsInSession[$accessory->getId()]);
+        }
+        return $total;
     }
 }

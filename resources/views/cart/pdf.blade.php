@@ -23,7 +23,7 @@
                 <thead>
                     <tr>
                         <th scope="col">Item ID - </th>
-                        <th scope="col">Mobile Name - </th>
+                        <th scope="col">Product Name - </th>
                         <th scope="col">Price - </th>
                         <th scope="col">Quantity</th>
                     </tr>
@@ -31,10 +31,18 @@
                 <tbody>
                     @foreach ($order->getItems() as $item)
                     <tr>
+                        @if(is_null($item->getAccessory()))
                         <td>{{ $item->getId() }}</td>
                         <td>{{ $item->getMobile()->getName() }}</td>
                         <td>${{ $item->getPrice() }}</td>
                         <td>{{ $item->getQuantity() }}</td>
+                        @endif
+                        @if(is_null($item->getMobile()))
+                        <td>{{ $item->getId() }}</td>
+                        <td>{{ $item->getAccessory()->getName() }}</td>
+                        <td>${{ $item->getPrice() }}</td>
+                        <td>{{ $item->getQuantity() }}</td>
+                        @endif
                     </tr>
                     @endforeach
                 </tbody>

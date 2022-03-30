@@ -19,8 +19,10 @@ return new class extends Migration
             $table->integer('price');
             $table->unsignedBigInteger('order_id');
             $table->foreign('order_id')->references('id')->on('orders');
-            $table->unsignedBigInteger('mobile_id');
+            $table->unsignedBigInteger('mobile_id')->nullable();
             $table->foreign('mobile_id')->references('id')->on('mobiles');
+            $table->unsignedBigInteger('accessory_id')->nullable();
+            $table->foreign('accessory_id')->references('id')->on('accessories');
             $table->timestamps();
         });
     }

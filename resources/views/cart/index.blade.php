@@ -24,7 +24,7 @@
 
 <div class="card">
     <div class="card-header">
-        Mobiles in Cart
+        Products in Cart
     </div>
     <div class="card-body">
         <table class="table table-bordered table-striped text-center">
@@ -45,6 +45,14 @@
                     <td>{{ session('mobiles')[$mobile->getId()] }}</td>
                 </tr>
                 @endforeach
+                @foreach ($viewData["accessoriesInCart"] as $accessory)
+                <tr>
+                    <td>{{ $accessory->getId() }}</td>
+                    <td>{{ $accessory->getName() }}</td>
+                    <td>${{ $accessory->getPrice() }}</td>
+                    <td>{{ session('accessories')[$accessory->getId()] }}</td>
+                </tr>
+                @endforeach
             </tbody>
         </table>
         <div class="row">
@@ -54,7 +62,7 @@
                 <a href="{{ route('cart.purchase') }}" class="btn bg-primary text-white mb-2">Buy now!</a>
                 <a href="{{ route('cart.removeAll') }}">
                     <button class="btn btn-danger mb-2">
-                        Remove all mobiles from Cart
+                        Remove all products from Cart
                     </button>
                 </a>
                 @endif

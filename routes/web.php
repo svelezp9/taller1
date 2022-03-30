@@ -32,7 +32,9 @@ Route::get('/mobiles/review/delete/{id}', 'App\Http\Controllers\ReviewController
 
 Route::get('/cart', 'App\Http\Controllers\CartController@index')->name("cart.index");
 
-Route::post('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name("cart.add");
+Route::post('/cart/add/{id}', 'App\Http\Controllers\CartController@addMobile')->name("cart.addMobile");
+
+Route::post('/cart/add/Accessory/{id}', 'App\Http\Controllers\CartController@addAccessory')->name("cart.addAccessory");
 
 Route::get('/cart/removeAll/', 'App\Http\Controllers\CartController@removeAll')->name("cart.removeAll");
 

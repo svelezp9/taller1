@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->float('price');
-            $table->string('brand');
             $table->string('description');
             $table->string('imgName');
             $table->unsignedBigInteger('mobile_id');

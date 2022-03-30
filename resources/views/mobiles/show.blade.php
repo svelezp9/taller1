@@ -23,14 +23,13 @@
                     <p class="card-text">${{ $viewData["mobile"]->getPrice() }}</p>
                     @endif
                     <p class="card-text">
-                    <form method="POST" action="{{ route('cart.add', ['id'=> $viewData['mobile']->getId()]) }}">
+                    <form method="POST" action="{{ route('cart.addMobile', ['id'=> $viewData['mobile']->getId()]) }}">
                         <div class="row">
                             @csrf
                             <div class="col-auto">
                                 <div class="input-group col-auto">
                                     <div class="input-group-text">Quantity</div>
-                                    <input type="number" min="1" max="10" class="form-control quantity-input"
-                                        name="quantity" value="1">
+                                    <input type="number" min="1" max="10" class="form-control quantity-input" name="quantity" value="1">
                                 </div>
                             </div>
                             <div class="col-auto">
@@ -39,40 +38,69 @@
                         </div>
                     </form>
                     </p>
-                    <!--<a href="{{ route('cart.add', ['id'=> $viewData["mobile"]->getId()]) }}">Añadir a la orden</a>-->
+                    <!--<a href="{{ route('cart.addMobile', ['id'=> $viewData["mobile"]->getId()]) }}">Añadir a la orden</a>-->
+                    @auth
                     <div class="card mb-1">
-                        <a href="{{ route('reviews.create', ['id' => $viewData["mobile"]->getId()]) }}"
-                            class="btn bg-primary text-white">Rate and review!</a>
+                        <a href="{{ route('reviews.create', ['id' => $viewData["mobile"]->getId()]) }}" class="btn bg-primary text-white">Rate and review!</a>
                     </div>
+                    @endauth
             </div>
         </div>
-        <div class="col-md-3"></div>
-        <div class="col-md-6">        
-                <h5>Cellphone Reviews</h5>
-                @if(session()->has('message'))
-                <div class="alert alert-success">
-                    {{ session()->get('message') }}
-                </div>
-                @endif
-                @foreach($viewData["mobile"]->reviews as $review)
-                <hr/>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-5 col-md-6 col-12 pb-4">
-                            <div class="comment mt-4 text-justify float-left">
-                                <h6>Rating: {{ $review->getRating() }}</h6>
-                                <p> - {{ $review->getComment() }}</p>
+        <hr />
+        <div class="col-md-5">
+            @foreach($viewData["mobile"]->accessories as $accessory)
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-5 col-md-6 col-12 pb-4">
+                        <div class="comment mt-4 text-justify float-left">
+                            <h6>Accesories for this Mobile: </h6>
+                            <p>{{ $accessory->getName() }} : {{ $accessory->getPrice() }}$</p>
+                            <p> - {{ $accessory->getDescription() }}</p>
+                        </div>
+                        <form method="POST" action="{{ route('cart.addAccessory', ['id'=> $accessory->getId()]) }}">
+                            <div class="row">
+                                @csrf
+                                <div class="col-auto">
+                                    <div class="input-group col-auto">
+                                        <div class="input-group-text">Quantity</div>
+                                        <input type="number" min="1" max="10" class="form-control quantity-input" name="quantity" value="1">
+                                    </div>
+                                </div>
+                                <div class="col-auto">
+                                    <button class="btn bg-primary text-white" type="submit">Add to cart</button>
+                                </div>
                             </div>
-                            <!--<div class="card-body">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+        <div class="col-md-7">
+            <h5>Cellphone Reviews</h5>
+            @if(session()->has('message'))
+            <div class="alert alert-success">
+                {{ session()->get('message') }}
+            </div>
+            @endif
+            @foreach($viewData["mobile"]->reviews as $review)
+            <hr />
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-5 col-md-6 col-12 pb-4">
+                        <div class="comment mt-4 text-justify float-left">
+                            <h6>Rating: {{ $review->getRating() }}</h6>
+                            <p> - {{ $review->getComment() }}</p>
+                        </div>
+                        <!--<div class="card-body">
                                 <a href="{{ route('reviews.delete', ['id' => $review->getId()]) }}"
                                     class="btn bg-primary text-white ml-auto">Borrar reseña</a>
                             </div>-->
-                        </div>
                     </div>
-                </div>          
+                </div>
+            </div>
             @endforeach
         </div>
-        <div class="col-md-3"></div>
 
     </div>
 </div>
