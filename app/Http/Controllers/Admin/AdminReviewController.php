@@ -7,10 +7,8 @@ use App\Models\Review;
 use Illuminate\Support\Facades\Auth;
 
 class AdminReviewController extends Controller
-
 {
     public function create($mobileid)
-
     {
         $viewData = []; //to be sent to the view
         $viewData["title"] = "Create Review";
@@ -28,7 +26,6 @@ class AdminReviewController extends Controller
         return back()->with('message', "Item created successfully");
     }
     public function updateData($id)
-
     {
         $viewData = []; //to be sent to the view
         $viewData["title"] = "Update Review";

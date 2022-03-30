@@ -31,167 +31,143 @@ class Mobile extends Model
     protected $fillable = ['name', 'price', 'brand', 'model', 'color', 'ramMemory', 'storage', 'imgName'];
 
     public function getId()
-
     {
 
         return $this->attributes['id'];
     }
 
     public function setId($id)
-
     {
 
         $this->attributes['id'] = $id;
     }
 
     public function getName()
-
     {
 
         return $this->attributes['name'];
     }
 
     public function setName($name)
-
     {
 
         $this->attributes['name'] = $name;
     }
 
     public function getPrice()
-
     {
 
         return $this->attributes['price'];
     }
 
     public function setPrice($price)
-
     {
 
         $this->attributes['price'] = $price;
     }
 
     public function getBrand()
-
     {
 
         return $this->attributes['brand'];
     }
 
     public function setBrand($brand)
-
     {
 
         $this->attributes['brand'] = $brand;
     }
 
     public function getModel()
-
     {
 
         return $this->attributes['model'];
     }
 
     public function setModel($model)
-
     {
 
         $this->attributes['model'] = $model;
     }
 
     public function getColor()
-
     {
 
         return $this->attributes['color'];
     }
 
     public function setColor($color)
-
     {
 
         $this->attributes['color'] = $color;
     }
 
     public function getRamMemory()
-
     {
 
         return $this->attributes['ramMemory'];
     }
 
     public function setRamMemory($ramMemory)
-
     {
 
         $this->attributes['ramMemory'] = $ramMemory;
     }
 
     public function getStorage()
-
     {
 
         return $this->attributes['storage'];
     }
 
     public function setStorage($storage)
-
     {
 
         $this->attributes['storage'] = $storage;
     }
 
-    public function getimgName()
-
+    public function getImgName()
     {
 
         return $this->attributes['imgName'];
     }
 
-    public function setimgName($imgName)
-
+    public function setImgName($imgName)
     {
 
         $this->attributes['imgName'] = $imgName;
     }
 
     public function reviews()
-
     {
 
         return $this->hasMany(Review::class);
     }
 
     public function getReviews()
-
     {
 
         return $this->reviews;
     }
 
     public function setReviews($reviews)
-
     {
 
         $this->reviews = $reviews;
     }
     public function accessories()
-
     {
 
         return $this->hasMany(Accessory::class);
     }
 
     public function getAccessories()
-
     {
 
         return $this->accesories;
     }
 
     public function setAccessories($accessories)
-
     {
 
         $this->accessories = $accessories;

@@ -25,16 +25,17 @@ class Item extends Model
      * $this->mobile - Mobile - contains the associated Mobile
      * $this->accessory - Accessory - contains the associated Accessory
      */
-
     public static function validate($request)
     {
-        $request->validate([
+        $request->validate(
+            [
             "price" => "required|numeric|gt:0",
             "quantity" => "required|numeric|gt:0",
             "mobile_id" => "required|exists:mobiles,id",
             "order_id" => "required|exists:orders,id",
             "accessory_id" => "required|exists:accessory,id",
-        ]);
+            ]
+        );
     }
     
     public function getId()

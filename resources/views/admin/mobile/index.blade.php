@@ -12,6 +12,7 @@
                     <th scope="col">ID</th>
                     <th scope="col">Name</th>
                     <th scope="col">Edit</th>
+                    <th scope="col">Show</th>
                 </tr>
             </thead>
             <tbody>
@@ -21,6 +22,11 @@
                     <td>{{ $mobile->getName() }}</td>
                     <td>
                         <a class="btn btn-primary" href="{{route('admin.mobile.edit', ['id'=> $mobile->getId()])}}">
+                            <i class="bi-pencil"></i>
+                        </a>
+                    </td>
+                    <td>
+                        <a class="btn btn-primary" href="{{route('admin.mobile.show', ['id'=> $mobile->getId()])}}">
                             <i class="bi-pencil"></i>
                         </a>
                     </td>

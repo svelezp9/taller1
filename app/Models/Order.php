@@ -22,13 +22,14 @@ class Order extends Model
      * $this->user - User - contains the associated User
      * $this->items - Item[] - contains the associated items
      */
-    
     public static function validate($request)
     {
-        $request->validate([
+        $request->validate(
+            [
             "total" => "required|numeric",
             "user_id" => "required|exists:users,id",
-        ]);
+            ]
+        );
     }
     
     public function getId()

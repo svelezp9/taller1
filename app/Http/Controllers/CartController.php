@@ -18,15 +18,19 @@ class CartController extends Controller
         $totalAccessory = 0;
         $mobilesInCart = [];
         $accessoriesInCart = [];
-        $ids = $request->session()->get("mobiles"); //we get the ids of the mobiles stored in session
-        if($ids){
+        $ids = $request->session()->get("mobiles"); 
+        //we get the ids of the mobiles stored in session
+        if ($ids) {
             $mobilesInCart = Mobile::findMany(array_keys($ids));
             $totalMobile = Mobile::sumPricesByQuantities($mobilesInCart, $ids);
         }
-        $ids = $request->session()->get("accessories"); //we get the ids of the accessories stored in session
-        if($ids){
+        $ids = $request->session()->get("accessories"); 
+        //we get the ids of the accessories stored in session
+        if ($ids) {
             $accessoriesInCart = Accessory::findMany(array_keys($ids));
-            $totalAccessory = Accessory::sumPricesByQuantities($accessoriesInCart, $ids);
+            $totalAccessory = Accessory::sumPricesByQuantities(
+                $accessoriesInCart, $ids
+            );
         }
         $total = $totalAccessory + $totalMobile;
         $viewData = [];
@@ -36,7 +40,7 @@ class CartController extends Controller
         $viewData["mobilesInCart"] = $mobilesInCart;
         $viewData["accessoriesInCart"] = $accessoriesInCart;
 
-        return view('cart.index')->with("viewData",$viewData);
+        return view('cart.index')->with("viewData", $viewData);
     }
 
     public function addMobile(Request $request, $id)
@@ -87,8 +91,10 @@ class CartController extends Controller
                 $item->save();
                 $total = $total + ($mobile->getPrice()*$quantity);
             }
-            if($accessoriesInSession){
-                $accessoriesInCart = Accessory::findMany(array_keys($accessoriesInSession));
+            if ($accessoriesInSession) {
+                $accessoriesInCart = Accessory::findMany(
+                    array_keys($accessoriesInSession)
+                );
                 foreach ($accessoriesInCart as $accessory) {
                     $quantity = $accessoriesInSession[$accessory->getId()];
                     $item = new Item();
@@ -131,7 +137,7 @@ class CartController extends Controller
         //$viewData["order"] = Order::findOrFail($id);
         //$viewData["orders"] = Order::where('id', $id)->get();
         $order = Order::findOrFail($id);
-        $pdf = PDF::loadView('cart.pdf',['order'=>$order]);
+        $pdf = PDF::loadView('cart.pdf', ['order'=>$order]);
         //$pdf->loadHTML('<h1>Test</h1>');
         return $pdf->stream();
         //return view('cart.pdf')->with("viewData", $viewData);

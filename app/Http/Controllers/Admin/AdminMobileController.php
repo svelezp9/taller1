@@ -9,11 +9,9 @@ use Illuminate\Support\Facades\Auth;
 use App\Interfaces\ImageStorage;
 
 class AdminMobileController extends Controller
-
 {
 
     public function index()
-
     {
         $viewData = [];
         $viewData["title"] = "mobiles";
@@ -23,7 +21,6 @@ class AdminMobileController extends Controller
     }
 
     public function show($id)
-
     {
         $viewData = [];
         $mobile = Mobile::findOrFail($id);
@@ -34,7 +31,6 @@ class AdminMobileController extends Controller
     }
 
     public function create()
-
     {
         $viewData = []; //to be sent to the view
         $viewData["title"] = "Create mobile";
@@ -45,11 +41,15 @@ class AdminMobileController extends Controller
     public function save(Request $request)
     {
         Mobile::validate($request);
-        $mobileData = $request->only(["name", "price", "brand", "model", "color", "ramMemory", "storage"]);
-        $mobileData["imgName"] = $mobileData["name"].".".$request->file('imgName')->extension();
+        $mobileData = $request->only(
+            [
+                "name", "price", "brand", "model", "color", "ramMemory", "storage"
+            ]
+        );
+        $mobileData["imgName"] = $mobileData["name"] . "." . $request->file('imgName')->extension();
         Mobile::create($mobileData);
         $storeInterface = app(ImageStorage::class);
-        $storeInterface->store($request,$mobileData["imgName"]);
+        $storeInterface->store($request, $mobileData["imgName"]);
         return back()->with('message', "Item created successfully");
     }
 
@@ -72,7 +72,9 @@ class AdminMobileController extends Controller
         $mobile->setColor($request->input('color'));
         $mobile->setRamMemory($request->input('ramMemory'));
         $mobile->setStorage($request->input('storage'));
-        $mobile->setimgName($request->input('imgName'));
+        $mobile->setImgName($mobile->getName() . "." . $request->file('imgName')->extension());
+        $storeInterface = app(ImageStorage::class);
+        $storeInterface->store($request, $mobile->getImgName());
         $mobile->save();
         return redirect()->route('admin.mobile.index');
     }

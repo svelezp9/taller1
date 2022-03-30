@@ -36,7 +36,20 @@
                         <input type="text" class="form-control mb-2" placeholder="Enter color" name="color" value="{{ $viewData['mobile']->getColor() }}" />
                         <input type="text" class="form-control mb-2" placeholder="Enter ramMemory" name="ramMemory" value="{{ $viewData['mobile']->getRamMemory() }}" />
                         <input type="text" class="form-control mb-2" placeholder="Enter storage" name="storage" value="{{ $viewData['mobile']->getStorage() }}" />
-                        <input type="text" class="form-control mb-2" placeholder="Enter imgName" name="imgName" value="{{ $viewData['mobile']->getimgName() }}" />
+                        <div class="row">
+                            <div class="col">
+                                <div class="mb-3 row">
+                                    <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Image:</label>
+                                    <div class="col-lg-10 col-md-6 col-sm-12">
+                                        <input class="form-control" type="file" name="imgName">
+                                    </div>
+                                </div>
+                                <img src="{{ URL::asset('storage/test.png') }}" />
+                            </div>
+                            <div class="col">
+                                &nbsp;
+                            </div>
+                        </div>
                         <input type="submit" class="btn btn-primary" value="Edit" />
 
                     </form>

@@ -9,7 +9,6 @@ class Review extends Model
 {
     use HasFactory;
     /**
-
      * MOBILE ATTRIBUTES
 
      * $this->attributes['id'] - int - contains the mobile primary key (id)
@@ -21,55 +20,47 @@ class Review extends Model
     protected $fillable = ['comment', 'mobile_id', 'rating', 'comment','user_id'];
 
     public function getId()
-
     {
 
         return $this->attributes['id'];
     }
 
     public function setId($id)
-
     {
 
         $this->attributes['id'] = $id;
     }
 
     public function getComment()
-
     {
 
         return $this->attributes['comment'];
     }
 
     public function setComment($comment)
-
     {
 
         $this->attributes['comment'] = $comment;
     }
     public function getRating()
-
     {
 
         return $this->attributes['rating'];
     }
 
     public function setRating($rating)
-
     {
 
         $this->attributes['rating'] = $rating;
     }
 
     public function getMobileId()
-
     {
 
         return $this->attributes['mobile_id'];
     }
 
     public function setMobileId($mId)
-
     {
 
         $this->attributes['mobile_id'] = $mId;
@@ -82,47 +73,41 @@ class Review extends Model
     }
 
     public function getMobile()
-
     {
 
         return $this->mobile;
     }
 
     public function setMobile($mobile)
-
     {
 
         $this->mobile = $mobile;
     }
     public function getUserId()
-
     {
 
         return $this->attributes['user_id'];
     }
 
     public function setUserId($uId)
-
     {
 
         $this->attributes['user_id'] = $uId;
     }
 
-    public function User()
+    public function user()
     {
 
         return $this->belongsTo(User::class);
     }
 
     public function getUser()
-
     {
 
         return $this->user;
     }
 
     public function setUser($user)
-
     {
 
         $this->user = $user;

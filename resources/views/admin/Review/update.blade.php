@@ -37,7 +37,7 @@
                     <form method="POST" action="{{ route('admin.review.update', ['id' => $viewData["review"]->getId()]) }}">
 
                         @csrf
-                        <input type="text" class="form-control mb-2" placeholder="Enter comment" name="comment" value="{{ old('comment') }}" />
+                        <input type="text" class="form-control mb-2" placeholder="Enter comment" name="comment" value="{{ $viewData["review"]->getComment() }}" />
 
                         <p class="form-control mb-2">
                                 <label for="cars">Rating: </label>

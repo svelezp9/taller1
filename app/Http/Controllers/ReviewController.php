@@ -7,10 +7,8 @@ use App\Models\Mobile;
 use Illuminate\Support\Facades\Auth;
 
 class ReviewController extends Controller
-
 {
     public function create($mobileid)
-
     {
         $viewData = []; //to be sent to the view
         $viewData["title"] = "Create Review";
