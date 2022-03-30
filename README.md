@@ -28,89 +28,11 @@ git clone https://github.com/svelezp9/taller1.git
  composer install
  ```
 
-3. Ahora, debemos crear un archivo de migración, ejecutando el siguiente comando:
-
-```sh
-php artisan make:migration create_mobiles_table
-```
-
-4. Debemos abrir el archivo creado y pegar el siguiente código:
-
-```php
-<?php
-
-use Illuminate\Database\Migrations\Migration;
-
-use Illuminate\Database\Schema\Blueprint;
-
-use Illuminate\Support\Facades\Schema;
-
-return new class extends Migration
-
-{
-
-    /**
-
-     * Run the migrations.
-
-     *
-
-     * @return void
-
-     */
-
-    public function up()
-
-    {
-
-        Schema::create('mobiles', function (Blueprint $table) {
-
-            $table->id();
-
-            $table->string('name');
-
-            $table->float('price');
-
-            $table->string('brand');
-
-            $table->string('model');
-
-            $table->string('color');
-
-            $table->integer('ramMemory');
-
-            $table->integer('storage');
-
-            $table->string('imgName');
-
-            $table->timestamps();
-        });
-    }
-
-    /**
-
-     * Reverse the migrations.
-
-     *
-
-     * @return void
-
-     */
-
-    public function down()
-
-    {
-
-        Schema::dropIfExists('mobiles');
-    }
-};
-```
-
-5. Debemos abrir **XAMPP Control Panel** y hacer click en el botón **Start Apache** y **Start MySQL**.
+3. Debemos abrir **XAMPP Control Panel** y hacer click en el botón **Start Apache** y **Start MySQL**.
 
 ![XAMPP](https://i.imgur.com/IkwqBG5.png)
 
-6. Ahora debemos abrir el administrador de base de datos de **MySQL** y sobre la parte izquierda donde están las bases de datos, debemos hacer click en **New**.
+4. Ahora debemos abrir el administrador de base de datos de **MySQL** y sobre la parte izquierda donde están las bases de datos, debemos hacer click en **New**.
 
 ![Crear base de datos](https://i.imgur.com/jBQxtbS.png)
 
@@ -120,12 +42,12 @@ Se va a llamar ``taller1_svelezp9``.
 
 Le damos click en **Create**.
 
-7. Ahora, debemos crear un archivo ``.env`` en la carpeta principal del proyecto. En este, pegaremos lo siguiente:
+5. Ahora, debemos crear un archivo ``.env`` en la carpeta principal del proyecto. En este, pegaremos lo siguiente:
 
 ```sh
 APP_NAME=Laravel
 APP_ENV=local
-APP_KEY=base64:kZUhfW6rCk3l+ZMtWwKRTR1RoVGQ3l6CIz5MUIsbkQ8=
+APP_KEY=base64:G65eNSnoyacF5jQgoFiXrg9pyV0WUFcm1OqG0yzJ/Zk=
 APP_DEBUG=true
 APP_URL=http://localhost
 
@@ -139,6 +61,8 @@ DB_PORT=3306
 DB_DATABASE=taller1_svelezp9
 DB_USERNAME=root
 DB_PASSWORD=
+
+SCOUT_DRIVER=database
 
 BROADCAST_DRIVER=log
 CACHE_DRIVER=file
@@ -177,24 +101,54 @@ MIX_PUSHER_APP_KEY="${PUSHER_APP_KEY}"
 MIX_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
 ```
 
-8. Ahora, debemos relizar las migraciones, para lo cual usaremos el siguiente comando:
+6. Ahora, debemos relizar las migraciones, para lo cual usaremos el siguiente comando:
 
 ```sh
 php artisan migrate
 ```
 
-9. Si hicimos bien los pasos, deberíamos ver la tabla en la base de datos creada en **phpMyAdmin**.
+7. Si hicimos bien los pasos, deberíamos ver la tabla en la base de datos creada en **phpMyAdmin**.
 
-10. A continuación debemos ejecutar el siguiente comando:
+8. A continuación debemos ejecutar el siguiente comando:
+
 ```sh
 php artisan key:generate
 ```
 
-11. Para finalmente ejecutar el proyecto debemos correr el siguiente comando:
+9. Debemos instalar DOMPDF Wrapper para Laravel, con el siguiente comando:
+
+```sh
+composer require barryvdh/laravel-dompdf
+```
+
+10. También hay que instalar y publicar Laravel Scout, con los siguientes comandos:
+
+```sh
+composer require laravel/scout
+```
+
+```sh
+php artisan vendor:publish --provider="Laravel\Scout\ScoutServiceProvider"
+```
+
+11. Hay que instalar PHP API Client para lo que usaremos el siguiente comando:
+
+```sh
+composer require algolia/algoliasearch-client-php
+```
+
+12. Debemos instalar File Storage con el siguiente comando:
+
+```sh
+php artisan storage:link
+```
+
+13. Para finalmente ejecutar el proyecto debemos correr el siguiente comando:
+
 ```sh
 php artisan serve
 ```
 
-Si hicimos todo bien, entramos a la página web (**http://127.0.0.1:8000**) y veremos lo siguiente:
+Si hicimos todo bien, entramos a la página web (**<http://127.0.0.1:8000>**) y veremos lo siguiente:
 
 ![Página en funcionamiento](https://i.imgur.com/w0HKyr4.png)
