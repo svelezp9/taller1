@@ -4,6 +4,12 @@
     <img src="https://i.imgur.com/qrNCSxg.png" alt="Logo" style="height: 400px; width:400px;" />
 </div>
 
+## Diagrama de clases
+
+---
+
+![Diagrama de Clases](https://i.imgur.com/HCXMRgk.jpg)
+
 ## Instalación del proyecto
 
 ---
