@@ -4,12 +4,17 @@
     <img src="https://i.imgur.com/qrNCSxg.png" alt="Logo" style="height: 400px; width:400px;" />
 </div>
 
-## Diagrama de clases
+## Diagrama de Clases
 
 ---
 
 ![Diagrama de Clases](https://i.imgur.com/HCXMRgk.jpg)
 
+## Diagrama de Arquitectura
+
+---
+
+![Diagrama de Arquitectura](https://i.imgur.com/dPCDg42.jpg)
 ## Instalación del proyecto
 
 ---
