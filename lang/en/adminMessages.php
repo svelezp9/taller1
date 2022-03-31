@@ -31,6 +31,10 @@ return[
     'deleteSuccess' => "Item Deleted successfully",
     'rating' => "Rating:",
     'updtR' => "Update Review",
-    'createR' => "Create Review",
+    'manage' => "Manage Mobiles",
+    'id' => "ID",
+    'name' => "Name",
+    'edit' => "Edit",
+    'show' => "Show",
 ]
 ?>

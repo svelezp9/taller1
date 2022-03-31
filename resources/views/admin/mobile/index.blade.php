@@ -3,16 +3,16 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-        Manage mobiles
+        {{__('adminMessages.manage')}}
     </div>
     <div class="card-body">
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">{{ __('name') }}</th>
-                    <th scope="col">Edit</th>
-                    <th scope="col">Show</th>
+                    <th scope="col">{{ __('adminMessages.id') }}</th>
+                    <th scope="col">{{ __('adminMessages.name') }}</th>
+                    <th scope="col">{{ __('adminMessages.edit') }}</th>
+                    <th scope="col">{{ __('adminMessages.show') }}</th>
                 </tr>
             </thead>
             <tbody>
