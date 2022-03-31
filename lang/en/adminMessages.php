@@ -26,6 +26,7 @@ return[
     'updtR' => "Update review",
     'delR' => "Delete review",
     'createSuccess' => "Item created successfully",
+    'editSuccess' => "Item edited successfully",
     'mobiles' => "mobiles",
     'createR' => "Create Review",
     'deleteSuccess' => "Item Deleted successfully",

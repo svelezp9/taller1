@@ -11,8 +11,6 @@ class MobileController extends Controller
     public function index()
     {
         $viewData = [];
-        $viewData["title"] = "Mobiles - Online Store";
-        $viewData["subtitle"] =  "List of Mobiles";
         $viewData["mobiles"] = Mobile::all();
         return view('mobiles.index')->with("viewData", $viewData);
     }
@@ -21,7 +19,7 @@ class MobileController extends Controller
     {
         $viewData = [];
         $mobile = Mobile::findOrFail($id);
-        $viewData["title"] = $mobile["name"] . " - Online Store";
+        $viewData["title"] = $mobile["name"] . __('messages.oStore');
         $viewData["subtitle"] =  $mobile["name"] . " - " . $mobile->getModel();
         $viewData["mobile"] = $mobile;
         return view('mobiles.show')->with("viewData", $viewData);
@@ -41,8 +39,8 @@ class MobileController extends Controller
     public function top()
     {
         $viewData = [];
-        $viewData["title"] = "Mobiles - Online Store";
-        $viewData["subtitle"] =  "Hot of Mobiles";
+        $viewData["title"] = __('messages.mobile_store');
+        $viewData["subtitle"] =  __('messages.hot');
         $mobiles = Mobile::withCount('reviews')->orderBy(
             'reviews_count',
             'desc'
@@ -53,8 +51,8 @@ class MobileController extends Controller
     public function lowerPrices()
     {
         $viewData = [];
-        $viewData["title"] = "Mobiles - Online Store";
-        $viewData["subtitle"] =  "Cheapest Mobiles";
+        $viewData["title"] = __('messages.mobile_store');
+        $viewData["subtitle"] =  __('messages.cheap');
         $mobiles = Mobile::orderBy('price', 'asc')->take('3')->get();
         $viewData['mobiles'] = $mobiles;
         return view('mobiles.top')->with("viewData", $viewData);

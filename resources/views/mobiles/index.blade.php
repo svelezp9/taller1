@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
-@section('title', 'Mobile')
+@section('title', __('messages.mobiles'))
 
-@section('subtitle', 'All Mobiles')
+@section('subtitle', __('messages.all'))
 
 @section('content')
 <form method="GET" class="mb-5" action="{{ route('mobiles.search') }}">
     <div class="input-group mb-3">
         <input type="text" name="search" value="{{ request()->get('search') }}" class="form-control" placeholder="Search..." aria-label="Search" aria-describedby="button-addon2">
-        <button class="btn btn-primary" type="submit" id="button-addon2">Search</button>
+        <button class="btn btn-primary" type="submit" id="button-addon2">{{__('messages.search')}}</button>
     </div>
 </form>
 <div class="row">

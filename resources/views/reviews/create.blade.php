@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Create Review</div>
+                <div class="card-header">{{__('messages.createReview')}}</div>
                 <div class="card-body">
                     @if($errors->any())
                     <ul id="errors" class="alert alert-danger list-unstyled">
@@ -23,7 +23,7 @@
                         @csrf
                         <input type="text" class="form-control mb-2" placeholder="Enter comment" name="comment" value="{{ old('comment') }}" />
                         <p class="form-control mb-2">
-                            <label for="cars">Rating: </label>
+                            <label for="cars">{{__('messages.rating')}}</label>
                             <select name="rating">
                                 <option value="1">1</option>
                                 <option value="2">2</option>

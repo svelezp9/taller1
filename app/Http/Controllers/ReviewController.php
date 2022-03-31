@@ -11,7 +11,7 @@ class ReviewController extends Controller
     public function create($mobileid)
     {
         $viewData = []; //to be sent to the view
-        $viewData["title"] = __('adminMessages.createR');
+        $viewData["title"] = __('messages.createReview');
         $viewData['mobile_id'] = $mobileid;
         return view('reviews.create')->with("viewData", $viewData);
     }
@@ -23,11 +23,11 @@ class ReviewController extends Controller
         $reviewData['mobile_id'] = $mobileId;
         $reviewData['user_id'] = Auth::id();
         Review::create($reviewData);
-        return back()->with('message', __('adminMessages.createSuccess'));
+        return back()->with('message', __('messages.createSuccess'));
     }
     public function delete($id)
     {
         Review::destroy($id);
-        return back()->with('message', __('adminMessages.deleteSuccess'));
+        return back()->with('message', __('messages.deleteSuccess'));
     }
 }

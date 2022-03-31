@@ -4,13 +4,13 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-        Purchase Completed
+        {{__('messages.pCompleted')}}
     </div>
     <div class="card-body">
         <div class="alert alert-success" role="alert">
-            Congratulations, purchase completed. Order number is <b>#{{ $viewData["order"]->getId() }}</b>
+            {{__('messages.pCongrat')}} <b>#{{ $viewData["order"]->getId() }}</b>
         </div>
-        <a href="{{ route('cart.pdf', ['id'=> $viewData['order']->getId()]) }}">Download your order in PDF</a>
+        <a href="{{ route('cart.pdf', ['id'=> $viewData['order']->getId()]) }}">{{__('messages.dPDF')}}</a>
     </div>
 </div>
 @endsection

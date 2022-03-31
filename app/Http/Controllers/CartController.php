@@ -34,8 +34,8 @@ class CartController extends Controller
         }
         $total = $totalAccessory + $totalMobile;
         $viewData = [];
-        $viewData["title"] = "Cart - Mobile Store";
-        $viewData["subtitle"] =  "Your Shopping Cart";
+        $viewData["title"] = __('messages.cMobile_store');
+        $viewData["subtitle"] =  __('messages.yourCart');;
         $viewData["total"] = $total;
         $viewData["mobilesInCart"] = $mobilesInCart;
         $viewData["accessoriesInCart"] = $accessoriesInCart;
@@ -118,8 +118,8 @@ class CartController extends Controller
             $request->session()->forget('accessories');
 
             $viewData = [];
-            $viewData["title"] = "Purchase - Online Store";
-            $viewData["subtitle"] = "Purchase Status";
+            $viewData["title"] = __('messages.purcharseTitle');
+            $viewData["subtitle"] = __('messages.pStatus');
             $viewData["order"] = $order;
 
             return view('cart.purchase')->with("viewData", $viewData);

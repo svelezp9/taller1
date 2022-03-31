@@ -12,11 +12,11 @@
                 <h5 class="card-title">
                     {{ $viewData["mobile"]->getName() }}
                 </h5>
-                <p class="card-text">Marca: {{ $viewData["mobile"]->getBrand() }}</p>
-                <p class="card-text">Modelo: {{ $viewData["mobile"]->getModel() }}</p>
-                <p class="card-text">Color: {{ $viewData["mobile"]->getColor() }}</p>
-                <p class="card-text">Memoria RAM: {{ $viewData["mobile"]->getRamMemory() }}</p>
-                <p class="card-text">Almacenamiento: {{ $viewData["mobile"]->getStorage() }}</p>
+                <p class="card-text">{{__('messages.brand')}} {{ $viewData["mobile"]->getBrand() }}</p>
+                <p class="card-text">{{__('messages.model')}} {{ $viewData["mobile"]->getModel() }}</p>
+                <p class="card-text">{{__('messages.color')}} {{ $viewData["mobile"]->getColor() }}</p>
+                <p class="card-text">{{__('messages.ram_memory')}} {{ $viewData["mobile"]->getRamMemory() }}</p>
+                <p class="card-text">{{__('messages.storage')}} {{ $viewData["mobile"]->getStorage() }}</p>
                 @if ($viewData["mobile"]->getPrice() < 100) <p class="card-text" style="color:#00FF00">
                     ${{ $viewData["mobile"]->getPrice() }}</p>
                     @else
@@ -28,12 +28,12 @@
                             @csrf
                             <div class="col-auto">
                                 <div class="input-group col-auto">
-                                    <div class="input-group-text">Quantity</div>
+                                    <div class="input-group-text">{{__('messages.qty')}}</div>
                                     <input type="number" min="1" max="10" class="form-control quantity-input" name="quantity" value="1">
                                 </div>
                             </div>
                             <div class="col-auto">
-                                <button class="btn bg-primary text-white" type="submit">Add to cart</button>
+                                <button class="btn bg-primary text-white" type="submit">{{__('messages.addCart')}}</button>
                             </div>
                         </div>
                     </form>
@@ -41,7 +41,7 @@
                     <!--<a href="{{ route('cart.addMobile', ['id'=> $viewData["mobile"]->getId()]) }}">Añadir a la orden</a>-->
                     @auth
                     <div class="card mb-1">
-                        <a href="{{ route('reviews.create', ['id' => $viewData["mobile"]->getId()]) }}" class="btn bg-primary text-white">Rate and review!</a>
+                        <a href="{{ route('reviews.create', ['id' => $viewData["mobile"]->getId()]) }}" class="btn bg-primary text-white">{{__('messages.rate_review')}}</a>
                     </div>
                     @endauth
             </div>
@@ -53,7 +53,7 @@
                 <div class="row">
                     <div class="col-sm-5 col-md-6 col-12 pb-4">
                         <div class="comment mt-4 text-justify float-left">
-                            <h6>Accesories for this Mobile: </h6>
+                            <h6>{{__('messages.accesory_per_mobile')}} </h6>
                             <p>{{ $accessory->getName() }} : {{ $accessory->getPrice() }}$</p>
                             <p> - {{ $accessory->getDescription() }}</p>
                         </div>
@@ -62,12 +62,12 @@
                                 @csrf
                                 <div class="col-auto">
                                     <div class="input-group col-auto">
-                                        <div class="input-group-text">Quantity</div>
+                                        <div class="input-group-text">{{__('messages.qty')}}</div>
                                         <input type="number" min="1" max="10" class="form-control quantity-input" name="quantity" value="1">
                                     </div>
                                 </div>
                                 <div class="col-auto">
-                                    <button class="btn bg-primary text-white" type="submit">Add to cart</button>
+                                    <button class="btn bg-primary text-white" type="submit">{{__('messages.storage')}}</button>
                                 </div>
                             </div>
                         </form>
@@ -77,7 +77,7 @@
             @endforeach
         </div>
         <div class="col-md-7">
-            <h5>Cellphone Reviews</h5>
+            <h5>{{__('messages.reviews_per_mobile')}}</h5>
             @if(session()->has('message'))
             <div class="alert alert-success">
                 {{ session()->get('message') }}
