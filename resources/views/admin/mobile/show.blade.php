@@ -19,15 +19,15 @@
 
                 </h5>
 
-                <p class="card-text">Precio: {{ $viewData["mobile"]->getPrice() }}</p>
-                <p class="card-text">Marca: {{ $viewData["mobile"]->getBrand() }}</p>
-                <p class="card-text">Modelo: {{ $viewData["mobile"]->getModel() }}</p>
-                <p class="card-text">Color: {{ $viewData["mobile"]->getColor() }}</p>
-                <p class="card-text">Memoria ram: {{ $viewData["mobile"]->getRamMemory() }}</p>
-                <p class="card-text">Alamacenamiento: {{ $viewData["mobile"]->getStorage() }}</p>
-                <p class="card-text">Nombre de la imagen: {{ $viewData["mobile"]->getImgName() }}</p>
+                <p class="card-text">{{__('adminMessages.price')}} {{ $viewData["mobile"]->getPrice() }}</p>
+                <p class="card-text">{{__('adminMessages.brand')}} {{ $viewData["mobile"]->getBrand() }}</p>
+                <p class="card-text">{{__('adminMessages.model')}} {{ $viewData["mobile"]->getModel() }}</p>
+                <p class="card-text">{{__('adminMessages.color')}} {{ $viewData["mobile"]->getColor() }}</p>
+                <p class="card-text">{{__('adminMessages.ram_memory')}} {{ $viewData["mobile"]->getRamMemory() }}</p>
+                <p class="card-text">{{__('adminMessages.storage')}} {{ $viewData["mobile"]->getStorage() }}</p>
+                <p class="card-text">{{__('adminMessages.imgName')}} {{ $viewData["mobile"]->getImgName() }}</p>
                 <div class="card mb-1">
-                    <a href="{{ route('admin.review.create', ['id' => $viewData["mobile"]->getId()]) }}" class="btn bg-primary text-white">Añadir Reseña</a>
+                    <a href="{{ route('admin.review.create', ['id' => $viewData["mobile"]->getId()]) }}" class="btn bg-primary text-white">{{__('adminMessages.addR')}}</a>
                 </div>
             </div>
         </div>
@@ -48,10 +48,10 @@
                         <p> - {{ $review->getComment() }}</p>
                     </div>
                     <div class="card-body">
-                        <a href="{{ route('admin.review.updateData', ['id' => $review->getId()]) }}" class="btn bg-primary text-white ml-auto">Actualizar reseña</a>
+                        <a href="{{ route('admin.review.updateData', ['id' => $review->getId()]) }}" class="btn bg-primary text-white ml-auto">{{__('adminMessages.updtR')}}</a>
                     </div>
                     <div class="card-body">
-                        <a href="{{ route('admin.review.delete', ['id' => $review->getId()]) }}" class="btn bg-primary text-white ml-auto">Borrar reseña</a>
+                        <a href="{{ route('admin.review.delete', ['id' => $review->getId()]) }}" class="btn bg-primary text-white ml-auto">{{__('adminMessages.delR')}}</a>
                     </div>
                 </div>
             </div>

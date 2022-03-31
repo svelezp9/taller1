@@ -12,7 +12,7 @@
 
             <div class="card">
 
-                <div class="card-header">Create Review</div>
+                <div class="card-header">{{__('adminMessages.createR')}}</div>
 
                 <div class="card-body">
 
@@ -40,7 +40,7 @@
                         <input type="text" class="form-control mb-2" placeholder="Enter comment" name="comment" value="{{ old('comment') }}" />
 
                         <p class="form-control mb-2">
-                                <label for="cars">Rating: </label>
+                                <label for="cars">{{__('adminMessages.rating')}} </label>
                                 <select name="rating">
                                     <option value="1">1</option>
                                     <option value="2">2</option>

@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Create product</div>
+                <div class="card-header">{{__('adminMessages.create')}}</div>
                 <div class="card-body">
 
                     @if($errors->any())
@@ -38,7 +38,7 @@
                         <div class="row">
                             <div class="col">
                                 <div class="mb-3 row">
-                                    <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Image:</label>
+                                    <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">{{__('adminMessages.img')}}</label>
                                     <div class="col-lg-10 col-md-6 col-sm-12">
                                         <input class="form-control" type="file" name="imgName">
                                     </div>

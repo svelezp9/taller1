@@ -1,16 +1,16 @@
 @extends('layouts.admin')
 
-@section('title', 'Taller 1')
+@section('title', __('adminMessages.title') )
 
 @section('content')
 
 <div class="text-center">
-    Welcome to the application
+    {{__('adminMessages.welcome') }}
     <div class="card-body text-center">
-        <a href="{{ route('admin.mobile.create') }}" class="btn bg-primary text-white">Create Mobiles</a>
+        <a href="{{ route('admin.mobile.create') }}" class="btn bg-primary text-white">{{__('adminMessages.create') }}</a>
     </div>
     <div class="card-body text-center">
-        <a href="{{ route('admin.mobile.index') }}" class="btn bg-primary text-white">List Mobiles</a>
+        <a href="{{ route('admin.mobile.index') }}" class="btn bg-primary text-white">{{__('adminMessages.list') }}</a>
     </div>
 </div>
 @endsection

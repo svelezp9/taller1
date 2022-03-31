@@ -10,7 +10,7 @@
             <thead>
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Name</th>
+                    <th scope="col">{{ __('name') }}</th>
                     <th scope="col">Edit</th>
                     <th scope="col">Show</th>
                 </tr>

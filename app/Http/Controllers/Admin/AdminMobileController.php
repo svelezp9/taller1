@@ -14,8 +14,8 @@ class AdminMobileController extends Controller
     public function index()
     {
         $viewData = [];
-        $viewData["title"] = "mobiles";
-        $viewData["subtitle"] = "List of mobiles";
+        $viewData["title"] = __('adminMessages.mobiles');
+        $viewData["subtitle"] = __('adminMessages.list');
         $viewData["mobiles"] = Mobile::all();
         return view('admin.mobile.index')->with("viewData", $viewData);
     }
@@ -24,8 +24,8 @@ class AdminMobileController extends Controller
     {
         $viewData = [];
         $mobile = Mobile::findOrFail($id);
-        $viewData["title"] = $mobile->getName() . " - Online Store";
-        $viewData["subtitle"] = $mobile->getName() . " - mobile information";
+        $viewData["title"] = $mobile->getName() . __('adminMessages.admin');
+        $viewData["subtitle"] = $mobile->getName() . __('adminMessages.info');
         $viewData["mobile"] = $mobile;
         return view('admin.mobile.show')->with("viewData", $viewData);
     }
@@ -33,7 +33,7 @@ class AdminMobileController extends Controller
     public function create()
     {
         $viewData = []; //to be sent to the view
-        $viewData["title"] = "Create mobile";
+        $viewData["title"] = __('adminMessages.create');
         $viewData["user"] = Auth::user();
         return view('admin.mobile.create')->with("viewData", $viewData);
     }
@@ -50,13 +50,13 @@ class AdminMobileController extends Controller
         Mobile::create($mobileData);
         $storeInterface = app(ImageStorage::class);
         $storeInterface->store($request, $mobileData["imgName"]);
-        return back()->with('message', "Item created successfully");
+        return back()->with('message', __('adminMessages.createSuccess'));
     }
 
     public function edit($id)
     {
         $viewData = [];
-        $viewData["title"] = "Admin Page - Edit mobile - Online Store";
+        $viewData["title"] = __('adminMessages.edit');;
         $viewData["mobile"] = Mobile::findOrFail($id);
         return view('admin.mobile.edit')->with("viewData", $viewData);
     }

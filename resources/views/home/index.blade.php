@@ -1,17 +1,17 @@
 @extends('layouts.app')
 
-@section('title', 'Taller 1')
+@section('title', __('messages.title'))
 
 @section('content')
 
 <div class="text-center">
 
-    Welcome to the application
+    {{ __('messages.welcome') }}
     <div class="card-body text-center">
-        <a href="{{ route('mobiles.top') }}" class="btn bg-primary text-white">Most Commented mobiles</a>
+        <a href="{{ route('mobiles.top') }}" class="btn bg-primary text-white">{{ __('messages.mostCommented') }}</a>
     </div>
     <div class="card-body text-center">
-        <a href="{{ route('mobiles.lowerPrices') }}" class="btn bg-primary text-white">Top 3 cheapest Mobiles</a>
+        <a href="{{ route('mobiles.lowerPrices') }}" class="btn bg-primary text-white">{{ __('messages.cheap') }}</a>
     </div>
 </div>
 
