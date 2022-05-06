@@ -52,5 +52,7 @@ return [
     'rating' => "Rating: ",
     'deleteSuccess' => "Item Deleted successfully",
     'createSuccess' => "Item created successfully",
+    'orders_all' => "Your Orders",
+    'orders' => "Orders",
 ]
 ?>

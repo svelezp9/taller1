@@ -109,19 +109,15 @@ class CartController extends Controller
             
             $order->setTotal($total);
             $order->save();
-            
             $newBalance = Auth::user()->getBalance() - $total;
             Auth::user()->setBalance($newBalance);
             Auth::user()->save();
-
             $request->session()->forget('mobiles');
             $request->session()->forget('accessories');
-
             $viewData = [];
             $viewData["title"] = __('messages.purcharseTitle');
             $viewData["subtitle"] = __('messages.pStatus');
             $viewData["order"] = $order;
-
             return view('cart.purchase')->with("viewData", $viewData);
         
         } else {
