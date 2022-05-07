@@ -80,9 +80,20 @@ return [
     | by the translation service provider. You are free to set this value
     | to any of the locales which will be supported by the application.
     |
+    |
+    | Route::get('/greeting/{locale}', function ($locale) {
+        if (! in_array($locale, ['en', 'es'])) {
+            abort(400);
+        }
+ 
+        App::setLocale($locale);
+ 
+        //
+      });
+    |
     */
 
-    'locale' => 'en',
+    'locale' => 'es',
 
     /*
     |--------------------------------------------------------------------------
