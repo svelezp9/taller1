@@ -54,5 +54,15 @@ return [
     'createSuccess' => "Item created successfully",
     'orders_all' => "Your Orders",
     'orders' => "Orders",
+    'orderNumber' => "Order #",
+    'orderSubtitle' => "Details of your order",
+    'oTotalP' => " Total paid: ",
+    'myOrder' => "My Order",
+    'date' => "Date:",
+    'total' => "Total:",
+    'itemId' => "Item ID",
+    'pName' => "Product Name",
+    'Price' => "Price",
+    'qnt' => "Quantity",
 ]
 ?>

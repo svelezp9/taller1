@@ -8,7 +8,7 @@
 <div class="row">
         <div class="card">
             <div class="card-body text-center">
-                <p> Order #{{ $order->getId()}} Total paid : {{ $order ->getTotal() }}</p>
+                <a href="{{ route('orders.show', ['id'=> $order->getId()]) }}">{{__('messages.orderNumber')}}{{ $order->getId() }}{{__('messages.oTotalP')}}{{ $order->getTotal() }}</a>
             </div>
         </div>
 </div>

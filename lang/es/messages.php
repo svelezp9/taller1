@@ -54,5 +54,15 @@ return [
     'createSuccess' => "Elemento creado con éxito",
     'orders_all' => "Tus pedidos",
     'orders' => "Pedidos",
+    'orderNumber' => "Orden #",
+    'orderSubtitle' => "Detalles de su orden",
+    'oTotalP' => " Total pagado: ",
+    'myOrder' => "Su Orden",
+    'date' => "Fecha:",
+    'total' => "Total:",
+    'itemId' => "ID del Elemento",
+    'pName' => "Nombre del producto",
+    'Price' => "Precio",
+    'qnt' => "Cantidad",
 ]
 ?>

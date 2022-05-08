@@ -27,6 +27,7 @@ Route::post('/cart/add/Accessory/{id}', 'App\Http\Controllers\CartController@add
 Route::get('/cart/removeAll/', 'App\Http\Controllers\CartController@removeAll')->name("cart.removeAll");
 Route::get('/cart/pdf/{id}', 'App\Http\Controllers\CartController@pdf')->name("cart.pdf");
 Route::get('/orders', 'App\Http\Controllers\OrderController@index')->name("orders.index");
+Route::get('/orders/{id}', 'App\Http\Controllers\OrderController@show')->name("orders.show");
 
 Route::middleware('auth')->group(
     function () {
