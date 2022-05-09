@@ -64,5 +64,8 @@ return [
     'pName' => "Nombre del producto",
     'Price' => "Precio",
     'qnt' => "Cantidad",
+    'profile' => "Perfil",
+    'welcome' => "¡Bienvenido!",
+    'currentBalance' => "Tu saldo actual es ",
 ]
 ?>

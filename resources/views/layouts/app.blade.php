@@ -42,6 +42,8 @@
                 <a class="nav-link active" href="{{ route('mobiles.index') }}">{{__('messages.all') }}</a>
                 <a class="nav-link active" href="{{ route('cart.index') }}">{{__('messages.shop_cart') }}</a>
                 <a class="nav-link active" href="{{ route('orders.index') }}">{{__('messages.orders') }}</a>
+                <a class="nav-link active" href="{{ route('profile.index') }}">{{__('messages.profile') }}</a>
+                
 
             </div>
 

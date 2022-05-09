@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name("home.index");
 Route::get('/mobiles', 'App\Http\Controllers\MobileController@index')->name("mobiles.index");
 Route::get('/mobiles/search', 'App\Http\Controllers\MobileController@search')->name("mobiles.search");
@@ -26,12 +27,13 @@ Route::post('/cart/add/{id}', 'App\Http\Controllers\CartController@addMobile')->
 Route::post('/cart/add/Accessory/{id}', 'App\Http\Controllers\CartController@addAccessory')->name("cart.addAccessory");
 Route::get('/cart/removeAll/', 'App\Http\Controllers\CartController@removeAll')->name("cart.removeAll");
 Route::get('/cart/pdf/{id}', 'App\Http\Controllers\CartController@pdf')->name("cart.pdf");
-Route::get('/orders', 'App\Http\Controllers\OrderController@index')->name("orders.index");
-Route::get('/orders/{id}', 'App\Http\Controllers\OrderController@show')->name("orders.show");
 
 Route::middleware('auth')->group(
     function () {
         Route::get('/cart/acquisition', 'App\Http\Controllers\CartController@purchase')->name("cart.purchase");
+        Route::get('/orders', 'App\Http\Controllers\OrderController@index')->name("orders.index");
+        Route::get('/orders/{id}', 'App\Http\Controllers\OrderController@show')->name("orders.show");
+        Route::get('/profile', 'App\Http\Controllers\ProfileController@index')->name("profile.index");
     }
 );
 
@@ -40,7 +42,7 @@ Route::middleware('admin')->group(
         Route::get('/admin', 'App\Http\Controllers\Admin\AdminHomeController@index')->name("admin.home.index");
         Route::get('/admin/mobiles', 'App\Http\Controllers\Admin\AdminMobileController@index')->name("admin.mobile.index");
         Route::get('/admin/mobiles/create', 'App\Http\Controllers\Admin\AdminMobileController@create')->name("admin.mobile.create");
-        Route::post('/admin/mobiles/save', 'App\Http\Controllers\Admin\AdminMobileController@save')->name("admin.mobile.save");  
+        Route::post('/admin/mobiles/save', 'App\Http\Controllers\Admin\AdminMobileController@save')->name("admin.mobile.save");
         Route::get('/admin/mobiles/{id}', 'App\Http\Controllers\Admin\AdminMobileController@show')->name("admin.mobile.show");
         Route::get('/admin/mobiles/review/create/{id}', 'App\Http\Controllers\Admin\AdminReviewController@create')->name("admin.review.create");
         Route::get('/admin/mobiles/review/delete/{id}', 'App\Http\Controllers\Admin\AdminReviewController@delete')->name("admin.review.delete");

@@ -67,7 +67,7 @@
                                     </div>
                                 </div>
                                 <div class="col-auto">
-                                    <button class="btn bg-primary text-white" type="submit">{{__('messages.storage')}}</button>
+                                    <button class="btn bg-primary text-white" type="submit">{{__('messages.addCart')}}</button>
                                 </div>
                             </div>
                         </form>
