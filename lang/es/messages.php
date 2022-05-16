@@ -67,5 +67,10 @@ return [
     'profile' => "Perfil",
     'welcome' => "¡Bienvenido!",
     'currentBalance' => "Tu saldo actual es ",
+    'Name' => "Nombre: ",
+    'Register' => "Registro",
+    'Email Address' => "Email: ",
+    'Password' => "Contraseña: ",
+    'Confirm Password' => "Confirmar Contraseña: ",
 ]
 ?>

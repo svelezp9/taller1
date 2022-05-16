@@ -67,5 +67,10 @@ return [
     'profile' => "Profile",
     'welcome' => "Welcome!",
     'currentBalance' => "Your current balance is ",
+    'Name' => "Name: ",
+    'Register' => "Register",
+    'Email Address' => "Email",
+    'Password' => "Password",
+    'Confirm Password' => "Confirm Password",
 ]
 ?>
