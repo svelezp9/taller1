@@ -11,7 +11,6 @@ RUN composer install \
     --no-plugins \
     --no-scripts \
     --prefer-dist
-    
 COPY ./.env.example ./.env
 RUN php artisan key:generate
 RUN php artisan migrate
