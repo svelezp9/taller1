@@ -13,6 +13,10 @@ RUN composer install \
     --prefer-dist
 COPY ./.env.example ./.env
 RUN php artisan key:generate
+RUN composer require barryvdh/laravel-dompdf
+RUN composer require laravel/scout
+RUN php artisan vendor:publish --provider="Laravel\Scout\ScoutServiceProvider"
+RUN php artisan storage:link
 RUN php artisan migrate
 RUN chmod -R 777 storage
 RUN a2enmod rewrite
