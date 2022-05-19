@@ -19,7 +19,7 @@ class MobileResource extends JsonResource
             'price' => $this->getPrice(),
             'brand' => $this->getBrand(),
             'model' => $this->getModel(),
-            'linkToMobile' => 'http://www.teismobilestore.tk/public/api/mobiles'.$this->getId(),
+            'linkToMobile' => 'http://www.teismobilestore.tk/public/api/mobiles/'.$this->getId(),
         ];
     }
 }
