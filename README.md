@@ -45,92 +45,17 @@ Se va a llamar ``taller1_svelezp9``.
 
 ![Crear base de datos](https://i.imgur.com/ODYk7Uz.png)
 
-<<<<<<< HEAD
+
 Le damos click en **Create**.
 
-5. Ahora, debemos crear un archivo ``.env`` en la carpeta principal del proyecto. En este, pegaremos lo siguiente:
+1. Ahora, debemos crear un archivo ``.env`` en la carpeta principal del proyecto. En este, pegaremos lo siguiente:
 =======
-<<<<<<< Updated upstream
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-=======
-     *
-
-     * @return void
-
-     */
-
-    public function up()
-
-    {
-
-        Schema::create('mobiles', function (Blueprint $table) {
-
-            $table->id();
-
-            $table->string('name');
-
-            $table->float('price');
-
-            $table->string('brand');
-
-            $table->string('model');
-
-            $table->string('color');
-
-            $table->integer('ramMemory');
-
-            $table->integer('storage');
-
-            $table->string('imgName');
-
-            $table->timestamps();
-        });
-    }
-
-    /**
-
-     * Reverse the migrations.
-
-     *
-
-     * @return void
-
-     */
-
-    public function down()
-
-    {
-
-        Schema::dropIfExists('mobiles');
-    }
-};
-```
-
-5. Debemos abrir **XAMPP Control Panel** y hacer click en el botón **Start Apache** y **Start MySQL**.
-
-![XAMPP](https://i.imgur.com/IkwqBG5.png)
-
-6. Ahora debemos abrir el administrador de base de datos de **MySQL** y sobre la parte izquierda donde están las bases de datos, debemos hacer click en **New**.
-
-![Crear base de datos](https://i.imgur.com/jBQxtbS.png)
-
-Se va a llamar ``taller1_svelezp9``.
-
-![Crear base de datos](https://i.imgur.com/ODYk7Uz.png)
-
-Le damos click en **Create**.
-
-7. Ahora, debemos crear un archivo ``.env`` en la carpeta principal del proyecto. En este, pegaremos lo siguiente:
->>>>>>> ef367b75aa48f8383facbb3bff80882fb1ef4047
 
 ```sh
 APP_NAME=Laravel
 APP_ENV=local
-<<<<<<< HEAD
 APP_KEY=base64:G65eNSnoyacF5jQgoFiXrg9pyV0WUFcm1OqG0yzJ/Zk=
-=======
-APP_KEY=base64:kZUhfW6rCk3l+ZMtWwKRTR1RoVGQ3l6CIz5MUIsbkQ8=
->>>>>>> ef367b75aa48f8383facbb3bff80882fb1ef4047
 APP_DEBUG=true
 APP_URL=http://localhost
 
@@ -145,11 +70,8 @@ DB_DATABASE=taller1_svelezp9
 DB_USERNAME=root
 DB_PASSWORD=
 
-<<<<<<< HEAD
 SCOUT_DRIVER=database
 
-=======
->>>>>>> ef367b75aa48f8383facbb3bff80882fb1ef4047
 BROADCAST_DRIVER=log
 CACHE_DRIVER=file
 FILESYSTEM_DISK=local
@@ -187,31 +109,20 @@ MIX_PUSHER_APP_KEY="${PUSHER_APP_KEY}"
 MIX_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
 ```
 
-<<<<<<< HEAD
 6. Ahora, debemos relizar las migraciones, para lo cual usaremos el siguiente comando:
-=======
-8. Ahora, debemos relizar las migraciones, para lo cual usaremos el siguiente comando:
->>>>>>> ef367b75aa48f8383facbb3bff80882fb1ef4047
 
 ```sh
 php artisan migrate
 ```
 
-<<<<<<< HEAD
 7. Si hicimos bien los pasos, deberíamos ver la tabla en la base de datos creada en **phpMyAdmin**.
 
 8. A continuación debemos ejecutar el siguiente comando:
 
-=======
-9. Si hicimos bien los pasos, deberíamos ver la tabla en la base de datos creada en **phpMyAdmin**.
-
-10. A continuación debemos ejecutar el siguiente comando:
->>>>>>> ef367b75aa48f8383facbb3bff80882fb1ef4047
 ```sh
 php artisan key:generate
 ```
 
-<<<<<<< HEAD
 9. Debemos instalar DOMPDF Wrapper para Laravel, con el siguiente comando:
 
 ```sh
@@ -242,9 +153,6 @@ php artisan storage:link
 
 13. Para finalmente ejecutar el proyecto debemos correr el siguiente comando:
 
-=======
-11. Para finalmente ejecutar el proyecto debemos correr el siguiente comando:
->>>>>>> ef367b75aa48f8383facbb3bff80882fb1ef4047
 ```sh
 php artisan serve
 ```
@@ -252,7 +160,4 @@ php artisan serve
 Si hicimos todo bien, entramos a la página web (**<http://127.0.0.1:8000>**) y veremos lo siguiente:
 
 ![Página en funcionamiento](https://i.imgur.com/w0HKyr4.png)
-<<<<<<< HEAD
-=======
->>>>>>> Stashed changes
 >>>>>>> ef367b75aa48f8383facbb3bff80882fb1ef4047
