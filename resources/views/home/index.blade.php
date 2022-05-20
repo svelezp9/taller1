@@ -4,15 +4,33 @@
 
 @section('content')
 
-<div class="text-center">
+<div class="row justify-content-center">
+<h2>{{__('messages.mostCommented')}}</h2>
+    @foreach ($viewData["mobilesTop"] as $mobileT)
+    <div class="col-md-4 col-lg-3 mb-2">
+        <div class="card h-100">
+            <img src="{{ asset('/storage/'.$mobileT->getImgName()) }}" class="card-img-top">
+            <div class="card-body d-flex flex-column">
+                <a href="{{ route('mobiles.show', ['id'=> $mobileT->getId()]) }}" class="btn btn-primary btn-lg cl-btn mt-auto"> {{ $mobileT->getName() }}</a>
+            </div>
+        </div>
+    </div>
+    @endforeach
+</div>
+<br>
 
-    {{ __('messages.welcome') }}
-    <div class="card-body text-center">
-        <a href="{{ route('mobiles.top') }}" class="btn bg-primary text-white">{{ __('messages.mostCommented') }}</a>
+<div class="row justify-content-center">
+    <h2>{{__('messages.cheap')}}</h2>
+    @foreach ($viewData["mobilesLower"] as $mobileL)
+    <div class="col-md-4 col-lg-3 mb-2">
+        <div class="card h-100">
+            <img src="{{ asset('/storage/'.$mobileL->getImgName()) }}" class="card-img-top">
+            <div class="card-body d-flex flex-column">
+                <a href="{{ route('mobiles.show', ['id'=> $mobileL->getId()]) }}" class="btn btn-primary btn-lg cl-btn mt-auto"> {{ $mobileL->getName() }}</a>
+            </div>
+        </div>
     </div>
-    <div class="card-body text-center">
-        <a href="{{ route('mobiles.lowerPrices') }}" class="btn bg-primary text-white">{{ __('messages.cheap') }}</a>
-    </div>
+    @endforeach
 </div>
 
 @endsection

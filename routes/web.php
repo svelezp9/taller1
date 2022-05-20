@@ -16,8 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name("home.index");
 Route::get('/mobiles', 'App\Http\Controllers\MobileController@index')->name("mobiles.index");
 Route::get('/mobiles/search', 'App\Http\Controllers\MobileController@search')->name("mobiles.search");
-Route::get('/mobiles/top', 'App\Http\Controllers\MobileController@top')->name("mobiles.top");
-Route::get('/mobiles/lowerPrices', 'App\Http\Controllers\MobileController@lowerPrices')->name("mobiles.lowerPrices");
 Route::get('/mobiles/{id}', 'App\Http\Controllers\MobileController@show')->name("mobiles.show");
 Route::get('/mobiles/review/create/{id}', 'App\Http\Controllers\ReviewController@create')->name("reviews.create");
 Route::post('/mobiles/review/save/{id}', 'App\Http\Controllers\ReviewController@save')->name("reviews.save");

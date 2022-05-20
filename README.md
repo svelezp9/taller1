@@ -141,8 +141,8 @@ php artisan vendor:publish --provider="Laravel\Scout\ScoutServiceProvider"
 
 11. Hay que instalar PHP API Client para lo que usaremos el siguiente comando:
 
-```sh
-composer require algolia/algoliasearch-client-php
+```
+composer require guzzlehttp/guzzle
 ```
 
 12. Debemos instalar File Storage con el siguiente comando:
