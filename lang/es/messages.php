@@ -1,7 +1,5 @@
 <?php
 
-use function Ramsey\Uuid\v1;
-
 return [
     'title' => "Tienda de móviles",
     'welcome' => "Bienvenido a la aplicación",
@@ -72,5 +70,8 @@ return [
     'Email Address' => "Email: ",
     'Password' => "Contraseña: ",
     'Confirm Password' => "Confirmar Contraseña: ",
+    'cLang' => "Cambiar lenguaje",
+    'en' => "Inglés",
+    'es' => "Español",
 ]
 ?>

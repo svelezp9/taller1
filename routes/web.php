@@ -52,4 +52,8 @@ Route::middleware('admin')->group(
     }
 );
 
+Route::group(['middleware' => ['web']], function () {
+    Route::get('/locale/{locale}', 'App\Http\Controllers\LocaleController@index')->name("locale.index");
+});
+
 Auth::routes();
