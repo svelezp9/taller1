@@ -5,7 +5,7 @@
 <form method="GET" class="mb-5" action="{{ route('mobiles.search') }}">
     <div class="input-group mb-3">
         <input type="text" name="search" value="{{ request()->get('search') }}" class="form-control" placeholder="Search..." aria-label="Search" aria-describedby="button-addon2">
-        <button class="btn btn-primary" type="submit" id="button-addon2">{{__('message.search')}}</button>
+        <button class="btn btn-primary" type="submit" id="button-addon2">{{__('messages.search')}}</button>
     </div>
 </form>
 <div class="row">
