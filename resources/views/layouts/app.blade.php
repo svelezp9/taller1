@@ -4,9 +4,13 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
-    <link href="{{ asset('/css/app.css') }}" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- <link href="{{ asset('/css/app.css') }}" rel="stylesheet" /> -->
+    <link href="{{ asset('/css/styles.css') }}" rel="stylesheet" />
     <title>@yield('title', __('messages.title'))</title>
 </head>
 
@@ -14,8 +18,8 @@
 
     <!-- header -->
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary py-4">
-        <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container px-4 px-lg-5">
             <!--<div class="logo"><a href=""><img src="logo.png"></a></div>-->
             <a class="navbar-brand" href="{{ route('home.index') }}">{{__('messages.mobile_store') }}</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
