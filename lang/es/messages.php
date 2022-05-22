@@ -73,5 +73,9 @@ return [
     'cLang' => "Cambiar lenguaje",
     'en' => "Inglés",
     'es' => "Español",
+    'pBeers' => "¿Sediento? Prueba algunas de las mejores cervezas",
+    'origin' => "Origen: ",
+    'details' => "Detalles: ",
+    'checkb' => "¿Antojado? ¡Mira la página oficial!",
 ]
 ?>

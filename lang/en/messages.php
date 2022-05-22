@@ -73,5 +73,9 @@ return [
     'cLang' => "Change Language",
     'en' => "English",
     'es' => "Spanish",
+    'pBeers' => "Thristy? Try Some of the best beers!",
+    'origin' => "Origin: ",
+    'details' => "Details: ",
+    'checkb' => "Excited? Check their official page!",
 ]
 ?>
