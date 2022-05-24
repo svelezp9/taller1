@@ -56,6 +56,17 @@
                                 @endguest
                             </div>
                         </li>
+                        <li class="nav-item dropdown">
+                            <div class="dropdown">
+                                <label class="nav-link dropdown-toggle text-warning" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    {{__('messages.cLang')}}
+                                </label>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="{{ route('locale.index', ['locale'=> 'en']) }}">{{__('messages.en')}}</a>
+                                    <a class="dropdown-item" href="{{ route('locale.index', ['locale'=> 'es']) }}">{{__('messages.es')}}</a>
+                                </div>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
