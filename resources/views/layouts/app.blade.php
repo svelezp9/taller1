@@ -105,24 +105,24 @@
                 <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                     <!-- Content -->
                     <h6 class="text-uppercase fw-bold mb-4">
-                        <i class="fas fa-gem me-3"></i>sianse
+                        <i class="fas fa-gem me-3"></i>{{__('messages.SiAnS')}}
                     </h6>
                     <p>
-                        SiAnSe es una tienda de celulares
+                        {{__('messages.SiAnSe')}}
                     </p>
                 </div>
                 <!-- Grid column -->
                 <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                     <!-- Links -->
                     <h6 class="text-uppercase fw-bold mb-4">
-                        Contacto
+                    {{__('messages.contact')}}
                     </h6>
-                    <p><i class="fas fa-home me-3"></i> Medellín, MDE 050022, CO</p>
+                    <p><i class="fas fa-home me-3"></i> {{__('messages.zipC')}}</p>
                     <p>
                         <i class="fas fa-envelope me-3"></i>
-                        support@sianse.com
+                        {{__('messages.suppEmail')}}
                     </p>
-                    <p><i class="fas fa-phone me-3"></i> + 57 604 300 1822</p>
+                    <p><i class="fas fa-phone me-3"></i> {{__('messages.phoneNumber')}}</p>
                 </div>
                 <!-- Grid column -->
             </div>
@@ -133,7 +133,7 @@
 
     <!-- Copyright -->
     <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-        ©️ 2022 Copyright:
+        {{__('messages.copyr')}}
         <a class="navbar-brand" href="{{ route('home.index') }}">{{__('messages.mobile_store') }}</a>
     </div>
     <!-- Copyright -->
