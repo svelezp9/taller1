@@ -8,13 +8,13 @@
 
 ---
 
-![Diagrama de Clases](https://i.imgur.com/HCXMRgk.jpg)
+![Diagrama de Clases](https://i.imgur.com/r2MNTGX.png)
 
 ## Diagrama de Arquitectura
 
 ---
 
-![Diagrama de Arquitectura](https://i.imgur.com/dPCDg42.jpg)
+![Diagrama de Arquitectura](https://i.imgur.com/khAGSDK.png)
 ## Instalación del proyecto
 
 ---
