@@ -19,7 +19,7 @@
 
 ---
 
-Para instalar el proyecto debemos seguir estos pasos:
+Para instalar el proyecto debemos seguir estos pasos :
 
 1. Debemos clonar el repositorio de GitHub estando ubicados en la carpeta **htdocs**, donde está nuestro **XAMPP**.
 

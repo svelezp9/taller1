@@ -25,7 +25,7 @@ class HomeController extends Controller
         /*
         $viewData["beers"] = $beersArray;
         $viewData["url"] = $beersURL;
-        */
+         */
         $viewData['mobilesTop'] = $mobilesTop;
         $mobilesLower = Mobile::orderBy('price', 'asc')->take('3')->get();
         $viewData['mobilesLower'] = $mobilesLower;
