@@ -24,7 +24,7 @@ Para instalar el proyecto debemos seguir estos pasos:
 1. Debemos clonar el repositorio de GitHub estando ubicados en la carpeta **htdocs**, donde está nuestro **XAMPP**.
 
 ```sh
-git clone https://github.com/svelezp9/taller1.git
+git https://github.com/achavaned/projectcicd.git
 ```
 
 2. Debemos ejecutar desde la carpeta del proyecto el siguiente comando para instalar el proyecto:

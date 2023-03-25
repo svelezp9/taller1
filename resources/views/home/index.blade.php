@@ -8,18 +8,11 @@
     @foreach(range($viewData["random"], $viewData ["random"] + 3) as $item) 
     <div class="col-md-4 col-lg-3 mb-2">
         <div class="card">
-            <h5 class="card-title">
-                {{ $viewData["beers"][$item]["name"] }}
-            </h5>
-            <p class="card-text">{{__('messages.brand')}} {{ $viewData["beers"][$item]["brand"] }}</p>
-            <p class="card-text">{{__('messages.origin')}} {{ $viewData["beers"][$item]["origin"] }}</p>
-            <p class="card-text">{{__('messages.price')}} {{ $viewData["beers"][$item]["price"] }}</p>
-            <p class="card-text">{{__('messages.details')}} {{ $viewData["beers"][$item]["details"] }}</p>
         </div>
     </div>
     @endforeach
     <div class="row justify-content-center">
-        <a href="{{ $viewData["url"] }}" target="_blank">{{ __('messages.checkb') }}</a>
+        
     </div>
 
 </div>
