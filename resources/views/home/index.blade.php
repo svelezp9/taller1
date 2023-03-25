@@ -7,7 +7,9 @@
     <h3>{{__('messages.pBeers')}}</h3>
     @foreach(range($viewData["random"], $viewData ["random"] + 3) as $item) 
     <div class="col-md-4 col-lg-3 mb-2">
-        <div class="card"></div>
+        <div class="card">
+            
+        </div>
     </div>
     @endforeach
     <div class="row justify-content-center">
